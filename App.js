@@ -14,7 +14,11 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 import { Navigation } from "./src/screens/navigation/navigation";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Login } from "./src/screens/login/login";
+import { LoginScreen } from "./src/screens/authentication/LoginScreen";
+import { ForgotPasswordScreen } from "./src/screens/authentication/ForgotPasswordScreen";
+import { ResetPasswordScreen } from "./src/screens/authentication/ResetPasswordScreen";
+import { RegisterScreen } from "./src/screens/authentication/RegisterScreen";
+import { EmailConfirmationScreen } from "./src/screens/authentication/EmailConfirmationScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -48,8 +52,29 @@ export default function App() {
 		  />
 		  <Stack.Screen 
 			name='Login'
-			component={Login}
-			options={{title: 'Login'}}
+			component={LoginScreen}
+			options={{title: 'Login', headerShown: false}}
+		  />
+		  <Stack.Screen 
+			name='ForgotPassword'
+			component={ForgotPasswordScreen}
+			options={{title: 'ForgotPassword', headerShown: false}}
+		  />
+		  <Stack.Screen 
+			name='ResetPassword'
+			component={ResetPasswordScreen}
+			options={{title: 'ResetPassword', headerShown: false}}
+		  />
+		  <Stack.Screen 
+			name='Register'
+			component={RegisterScreen}
+			options={{title: 'CreateAccount', headerShown: false}}
+		  />
+
+		  <Stack.Screen 
+			name='EmailConfirmation'
+			component={EmailConfirmationScreen}
+			options={{title: 'CreateAccount', headerShown: false}}
 		  />
   
 		</Stack.Navigator>

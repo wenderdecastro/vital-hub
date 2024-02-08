@@ -7,7 +7,7 @@ import { Spacing } from "../../utils/Components";
 import { ForgotPasswordLink } from "../../components/TextLink/style";
 import {TextLink } from "../../components/TextLink";
 
-export const Login = () => {
+export const LoginScreen = () => {
 	return (
 		<Container>
 
@@ -23,17 +23,11 @@ export const Login = () => {
 
 			<Spacing size={10} />
 
-			<ForgotPasswordLink>Esqueceu a senha?</ForgotPasswordLink>
-
-			<Spacing size={30} />
+			<ForgotPasswordLink onPress={() => navigation.navigate("ForgotPassword")}>Esqueceu a senha?</ForgotPasswordLink>
 
 			<Button title={"Entrar"} />
 
-			<Spacing size={15} />
-
 			<GoogleButton />
-
-			<Spacing size={30} />
 
 			<TextLink text="Não tem conta? " link="Crie uma conta agora!"  />
 

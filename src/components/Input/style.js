@@ -12,7 +12,7 @@ color: ${Colors.primary_v1};
 font-size:16px;
 font-family: "MontserratAlternates_600SemiBold";
 padding: 15px;
-margin-top: 15px;
+margin-top: 5%;
 
 
 `

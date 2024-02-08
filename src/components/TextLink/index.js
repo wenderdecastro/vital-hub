@@ -4,7 +4,7 @@ import { Colors } from "../../utils/Colors";
 
 export const TextLink = ({text, link, handleFn = null}) => {
     return (
-		<View style={{flexDirection: "row", marginTop: "30px"}}>
+		<View style={{flexDirection: "row", marginTop: 30}}>
 			<BoldText>{text}</BoldText>
 			<Link linkColor={Colors.secondary} onPress={handleFn}>{link}</Link>
 		</View>

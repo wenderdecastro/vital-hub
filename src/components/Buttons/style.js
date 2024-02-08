@@ -8,6 +8,7 @@ export const DefaultButtonContainer = styled.TouchableOpacity`
     justify-content: center;
     background-color: ${Colors.secondary};
     border-radius: 8px;
+    margin-top: 10%;
     
 `;
 
@@ -21,6 +22,7 @@ export const GoogleButtonContainer = styled.TouchableOpacity`
     border: 1px ${Colors.secondary};
     flex-direction: row;
     gap: 30px;
+    margin-top: 5%;
 `;
 
 
