@@ -1,18 +1,18 @@
-import { Button } from "../../components/Buttons"
-import { Container } from "../../components/Container"
-import { BackButton, CloseButton } from "../../components/FixedButtons"
-import { Input } from "../../components/Input/style"
-import { Logo } from "../../components/Logo/style"
-import { RawText } from "../../components/TextLink/style"
-import { Title } from "../../components/Title/style"
-import { Spacing } from "../../utils/Components"
+import { Button } from '../../components/Buttons';
+import { Container } from '../../components/Container';
+import { BackButton, CloseButton } from '../../components/FixedButtons';
+import { Input } from '../../components/Input/style';
+import { Logo } from '../../components/Logo/style';
+import { RawText } from '../../components/Text/style';
+import { Title } from '../../components/Title/style';
+import { Spacing } from '../../utils/Components';
 
 export const ResetPasswordScreen = () => {
-    return (
+	return (
 		<Container>
-			<CloseButton/>
-			
-			<Logo source={require("../../assets/VitalHub_Logo1.png")}/>
+			<CloseButton />
+
+			<Logo source={require('../../assets/VitalHub_Logo1.png')} />
 
 			<Title>Redefinir senha</Title>
 
@@ -24,7 +24,7 @@ export const ResetPasswordScreen = () => {
 
 			<Input placeholder="Confirmar nova senha" />
 
-			<Button title={"Confirmar nova senha"} />
+			<Button title={'Confirmar nova senha'} />
 		</Container>
 	);
-}
+};
