@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components';
 import { Colors } from '../../utils/Colors';
 
 export const ButtonContainer = styled.TouchableOpacity`
@@ -29,4 +29,43 @@ export const ButtonText = styled.Text`
 
 export const GoogleButtonText = styled(ButtonText)`
 	color: ${Colors.secondary};
+`;
+
+export const ButtonTabStyle = styled.TouchableOpacity`
+	width: 30%;
+	align-items: center;
+	padding: 12px 0px;
+	border-radius: 5px;
+
+	/* Se o botao estiver cliclado, aplica-se um fundo azul, caso contrario, fundo transparente */
+	${(props) =>
+		props.clickButton
+			? css`
+					background-color: ${Colors.secondary};
+			  `
+			: css`
+					background-color: transparent;
+					border: 2px solid ${Colors.secondary_v2};
+			  `}
+`;
+
+export const SwitchButtonText = styled.Text`
+	font-size: 12px;
+	font-family: ' MontserratAlternates_600SemiBold';
+
+	${(props) =>
+		props.clickButton
+			? css`
+					color: #fbfbfb;
+			  `
+			: css`
+					color: #607ec5;
+			  `}
+`;
+
+export const FilterContainer = styled.View`
+	width: 90%;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-top: 38px;
 `;

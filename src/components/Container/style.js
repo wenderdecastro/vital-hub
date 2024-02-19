@@ -14,10 +14,12 @@ export const ContainerContent = styled.View`
 
 export const ProfileBox = styled.View`
 	position: relative;
-	height: 100px;
-	width: 80%;
+	height: 125px;
+	width: 85%;
 	top: -50px;
 	justify-content: center;
 	text-align: center;
-	background-color: ${Colors.primary};
+	background-color: ${Colors.white};
+	elevation: 5;
+	border-radius: 5px;
 `;

@@ -3,7 +3,7 @@ import { Colors } from '../../utils/Colors';
 
 export const RawText = styled.Text`
 	font-family: 'Quicksand_500Medium';
-	font-size: 20px;
+	font-size: ${(props) => (props.fontSize ? props.fontSize : 20)}px;
 	color: ${(props) => (props.textColor ? props.textColor : Colors.gray)};
 	text-decoration: none;
 	margin-top: 15px;
