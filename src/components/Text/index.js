@@ -1,12 +1,12 @@
 import { View } from 'react-native';
-import { RawText, BoldText } from './style';
+import { RawText, AltText } from './style';
 import { Colors } from '../../utils/Colors';
 import { Link } from '../Link/style';
 
 export const TextLink = ({ text, link, handleFn = null }) => {
 	return (
 		<View style={{ flexDirection: 'row' }}>
-			<BoldText style={{ marginTop: 30 }}>{text}</BoldText>
+			<AltText style={{ marginTop: 30 }}>{text}</AltText>
 			<Link linkColor={Colors.secondary} onPress={handleFn}>
 				{link}
 			</Link>

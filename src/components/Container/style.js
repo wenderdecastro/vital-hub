@@ -12,6 +12,10 @@ export const ContainerContent = styled.View`
 	width: 88%;
 `;
 
+export const Box = styled.View`
+	flex: 1;
+`;
+
 export const ProfileBox = styled.View`
 	position: relative;
 	height: 125px;

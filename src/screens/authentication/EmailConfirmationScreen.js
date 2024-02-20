@@ -3,7 +3,7 @@ import { Container } from '../../components/Container';
 import { BackButton, CloseButton } from '../../components/FixedButtons';
 import { Input } from '../../components/Input/style';
 import { Logo } from '../../components/Logo/style';
-import { BoldText, RawText } from '../../components/Text/style';
+import { AltText, RawText } from '../../components/Text/style';
 import { Title } from '../../components/Title/style';
 import { Colors } from '../../utils/Colors';
 import { Spacing } from '../../utils/Components';
@@ -20,9 +20,9 @@ export const EmailConfirmationScreen = () => {
 			<RawText>
 				Digite o código de 4 dígitos enviado para o e-mail
 			</RawText>
-			<BoldText textColor={Colors.secondary_v1}>
+			<AltText textColor={Colors.secondary_v1}>
 				username@email.com
-			</BoldText>
+			</AltText>
 
 			<Button title={'Verificar'} />
 		</Container>

@@ -6,6 +6,7 @@ import { ContainerBox } from '../../components/Container/style';
 import { AppointmentFilter, ThreeButtonSwitch } from '../../components/Buttons';
 import { FilterContainer } from '../../components/Buttons/style';
 import { useState } from 'react';
+import { Appointments } from '../../components/List';
 
 const Consultas = [
 	{ id: 1, nome: 'Carlos', situacao: 'pendente' },
@@ -45,6 +46,8 @@ export const Home = () => {
 					onPress={() => setStatusLista('cancelado')}
 				/>
 			</FilterContainer>
+
+			<Appointments />
 
 			{/* Cards */}
 		</ContainerBox>

@@ -1,8 +1,8 @@
 import styled from 'styled-components/native';
 import { Colors } from '../../utils/Colors';
-import { BoldText } from '../Text/style';
+import { AltText } from '../Text/style';
 
-export const Link = styled(BoldText)`
+export const Link = styled(AltText)`
 	color: ${Colors.secondary_v1};
 	text-decoration: underline;
 	margin-top: 30px;

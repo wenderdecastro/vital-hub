@@ -1,11 +1,11 @@
 import { StyleSheet, View } from 'react-native';
-import { BoldText, RawText } from '../Text/style';
+import { AltText, RawText } from '../Text/style';
 import { ProfileBox } from '../Container/style';
 
 export const FloatingSection = ({ username, useremail }) => {
 	return (
 		<ProfileBox>
-			<BoldText>{username}</BoldText>
+			<AltText>{username}</AltText>
 			<RawText>{useremail}</RawText>
 		</ProfileBox>
 	);
