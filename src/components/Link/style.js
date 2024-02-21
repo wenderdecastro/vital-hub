@@ -8,10 +8,12 @@ export const Link = styled(AltText)`
 	margin-top: 30px;
 `;
 
-export const ForgotPasswordLink = styled(Link)`
+export const AltLink = styled(Link)`
 	font-size: 16px;
 	font-family: 'MontserratAlternates_500Medium';
-	color: ${Colors.gray_v4};
+	color: ${(props) => (props.linkColor ? props.linkColor : Colors.gray_v4)};
 	align-self: flex-start;
 	margin: 0;
+	text-decoration-line: ${(props) =>
+		props.textDecoration ? props.textDecoration : 'underline'};
 `;

@@ -6,18 +6,54 @@ import { ContainerBox } from '../../components/Container/style';
 import { AppointmentFilter, ThreeButtonSwitch } from '../../components/Buttons';
 import { FilterContainer } from '../../components/Buttons/style';
 import { useState } from 'react';
-import { Appointments } from '../../components/List';
+import { Appointment, Appointments } from '../../components/List';
+import { AppointmentsList } from '../../components/List/style';
 
-const Consultas = [
-	{ id: 1, nome: 'Carlos', situacao: 'pendente' },
-	{ id: 2, nome: 'Carlos', situacao: 'realizado' },
-	{ id: 3, nome: 'Carlos', situacao: 'pendente' },
-	{ id: 4, nome: 'Carlos', situacao: 'realizado' },
-	{ id: 5, nome: 'Carlos', situacao: 'cancelado' },
-	{ id: 6, nome: 'Carlos', situacao: 'cancelado' },
-];
 export const Home = () => {
-	const [statusLista, setStatusLista] = useState('pendente');
+	const [AppointmentList, setAppointmentList] = useState([
+		{
+			consultationId: 1,
+			patientName: 'Tasmania',
+			patientAge: '69',
+			appointmentPriority: 'Rotina',
+			appointmentTime: '14:00',
+			appointmentStatus: 'cancelled',
+		},
+		{
+			consultationId: 2,
+			patientName: 'Pato donald',
+			patientAge: '28',
+			appointmentPriority: 'Urgência',
+			appointmentTime: '15:00',
+			appointmentStatus: 'scheduled',
+		},
+		{
+			consultationId: 3,
+			patientName: 'Endauldi',
+			patientAge: '24',
+			appointmentPriority: 'Rotina',
+			appointmentTime: '16:00',
+			appointmentStatus: 'terminated',
+		},
+		{
+			consultationId: 4,
+			patientName: 'Aggrumgit',
+			patientAge: '22',
+			appointmentPriority: 'Urgência',
+			appointmentTime: '15:00',
+			appointmentStatus: 'scheduled',
+		},
+		{
+			consultationId: 5,
+			patientName: 'BUGIGANGA',
+			patientAge: '13',
+			appointmentPriority: 'Urgência',
+			appointmentTime: '15:00',
+			appointmentStatus: 'cancelled',
+		},
+	]);
+
+	const [listView, setListView] = useState('scheduled');
 	return (
 		<ContainerBox>
 			<StatusBar />
@@ -32,22 +68,36 @@ export const Home = () => {
 			<FilterContainer>
 				<AppointmentFilter
 					textButton={'Agendadas'}
-					clickButton={statusLista === 'pendente'}
-					onPress={() => setStatusLista('pendente')}
+					clickButton={listView === 'scheduled'}
+					onPress={() => setListView('scheduled')}
 				/>
 				<AppointmentFilter
 					textButton={'Realizadas'}
-					clickButton={statusLista === 'realizado'}
-					onPress={() => setStatusLista('realizado')}
+					clickButton={listView === 'terminated'}
+					onPress={() => setListView('terminated')}
 				/>
 				<AppointmentFilter
 					textButton={'Canceladas'}
-					clickButton={statusLista === 'cancelado'}
-					onPress={() => setStatusLista('cancelado')}
+					clickButton={listView === 'cancelled'}
+					onPress={() => setListView('cancelled')}
 				/>
 			</FilterContainer>
 
-			<Appointments />
+			<AppointmentsList
+				data={AppointmentList}
+				key={(item) => item.id}
+				renderItem={({ item }) =>
+					listView == item.appointmentStatus && (
+						<Appointment
+							patientName={item.patientName}
+							patientAge={item.patientAge}
+							appointmentTime={item.appointmentTime}
+							appointmentPriority={item.appointmentPriority}
+							appointmentStatus={item.appointmentStatus}
+						/>
+					)
+				}
+			/>
 
 			{/* Cards */}
 		</ContainerBox>

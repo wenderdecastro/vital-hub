@@ -4,7 +4,7 @@ import { Input } from '../../components/Input/style';
 import { Logo } from '../../components/Logo/style';
 import { Title } from '../../components/Title/style';
 import { Spacing } from '../../utils/Components';
-import { ForgotPasswordLink } from '../../components/Link/style';
+import { AltLink } from '../../components/Link/style';
 import { TextLink } from '../../components/Text';
 
 export const LoginScreen = () => {
@@ -22,11 +22,11 @@ export const LoginScreen = () => {
 
 			<Spacing size={10} />
 
-			<ForgotPasswordLink
+			<AltLink
 			// onPress={() => navigation.navigate('ForgotPassword')}
 			>
 				Esqueceu a senha?
-			</ForgotPasswordLink>
+			</AltLink>
 
 			<Button title={'Entrar'} />
 

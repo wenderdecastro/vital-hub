@@ -15,6 +15,12 @@ export const ContainerContent = styled.View`
 export const Box = styled.View`
 	flex: 1;
 `;
+export const RowBox = styled(Box)`
+	flex: 1;
+	flex-direction: row;
+	width: 100%;
+	align-items: center;
+`;
 
 export const ProfileBox = styled.View`
 	position: relative;

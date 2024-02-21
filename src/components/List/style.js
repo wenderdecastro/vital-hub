@@ -1,8 +1,10 @@
 import styled from 'styled-components/native';
 import { Colors } from '../../utils/Colors';
+import { FlatList } from 'react-native';
 
-export const AppointmentListBox = styled.FlatList`
-	flex: 1;
+export const AppointmentsList = styled(FlatList)`
+	width: 88%;
+	margin-top: 8%;
 `;
 
 export const AppointmentCard = styled.View`
@@ -11,6 +13,9 @@ export const AppointmentCard = styled.View`
 	width: 100%;
 	align-items: center;
 	justify-content: center;
+	border-radius: 5px;
+	background-color: white;
+	margin-bottom: 15px;
 `;
 
 export const ProfileImage = styled.Image`
@@ -23,18 +28,19 @@ export const ProfileImage = styled.Image`
 
 export const AppointmentCardContent = styled.View`
 	width: 90%;
-	align-items: inherit;
-	justify-content: inherit;
-	height: 90%;
+	align-items: center;
+	justify-content: center;
+	height: 80%;
 	gap: 10px;
 	flex-direction: row;
 `;
 
 export const ClockBox = styled.View`
 	flex-direction: row;
-	background-color: ${Colors.primary_v4};
+	background-color: ${(props) => props.boxColor};
 	justify-content: center;
 	align-items: center;
+	text-align: center;
 	width: 100px;
 	padding: 7px;
 	border-radius: 5px;
@@ -46,6 +52,8 @@ export const AppointmentCardContentBox = styled.View`
 	width: 100%;
 	align-items: center;
 	justify-content: space-between;
+	text-align: center;
+	flex-direction: row;
 	height: 40%;
 `;
 

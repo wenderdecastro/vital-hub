@@ -9,10 +9,17 @@ import {
 	ProfileImage,
 } from './style';
 import { Entypo } from '@expo/vector-icons';
-import { Box } from '../Container/style';
-import { AltText, Label, MediumText } from '../Text/style';
+import { Box, RowBox } from '../Container/style';
+import { AltText, Label, MediumText, ThinText } from '../Text/style';
+import { AltLink } from '../Link/style';
 
-export const Appointments = () => {
+export const Appointment = ({
+	patientAge,
+	appointmentPriority,
+	patientName,
+	appointmentTime,
+	appointmentStatus,
+}) => {
 	return (
 		<AppointmentCard>
 			<AppointmentCardContent>
@@ -23,25 +30,68 @@ export const Appointments = () => {
 				/>
 				<Box>
 					<AppointmentCardTextBox>
-						<AltText fontSize={32}>Teste Teste</AltText>
-						<Box>
-							<MediumText>teste</MediumText>
+						<AltText fontSize={24}>{patientName}</AltText>
+						<RowBox>
+							<ThinText style={{ height: '100%' }}>
+								{patientAge} anos
+							</ThinText>
 							<Entypo
 								name="dot-single"
 								size={24}
 								color={Colors.gray_v6}
 							/>
-						</Box>
+							<Label style={{ height: '100%' }}>
+								{appointmentPriority}
+							</Label>
+						</RowBox>
 					</AppointmentCardTextBox>
 					<AppointmentCardContentBox>
-						<ClockBox>
+						<ClockBox
+							boxColor={
+								appointmentStatus == 'scheduled'
+									? Colors.primary_v4
+									: Colors.white_v1
+							}
+						>
 							<Ionicons
 								name="time"
 								size={15}
-								color={Colors.primary}
+								color={
+									appointmentStatus == 'scheduled'
+										? Colors.primary
+										: Colors.gray_v1
+								}
 							/>
-							<Label textColor={Colors.primary}>14:00</Label>
+							<Label
+								style={{ height: '100%' }}
+								textColor={
+									appointmentStatus == 'scheduled'
+										? Colors.primary
+										: Colors.gray_v1
+								}
+							>
+								{appointmentTime}
+							</Label>
 						</ClockBox>
+						{appointmentStatus == 'cancelled' ? (
+							<></>
+						) : appointmentStatus == 'scheduled' ? (
+							<AltLink
+								textDecoration={'none'}
+								linkColor={Colors.red}
+								style={{ alignSelf: 'flex-end' }}
+							>
+								Cancelar
+							</AltLink>
+						) : (
+							<AltLink
+								textDecoration={'none'}
+								linkColor={Colors.secondary_v1}
+								style={{ alignSelf: 'flex-end' }}
+							>
+								Ver Prontuário
+							</AltLink>
+						)}
 					</AppointmentCardContentBox>
 				</Box>
 			</AppointmentCardContent>

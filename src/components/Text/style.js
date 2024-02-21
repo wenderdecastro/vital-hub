@@ -10,12 +10,19 @@ export const RawText = styled.Text`
 	text-align: center;
 `;
 
-export const MediumText = styled(RawText)``;
+export const ThinText = styled(RawText)`
+	font-family: 'Quicksand_400Regular';
+	margin: 0;
+`;
+
+export const MediumText = styled(RawText)`
+	font-family: 'MontserratAlternates_500Medium';
+`;
 
 export const AltText = styled(RawText)`
 	font-family: 'MontserratAlternates_600SemiBold';
 	font-size: 18px;
-	margin-top: none;
+	margin-top: 0;
 `;
 
 export const Label = styled(AltText)`
