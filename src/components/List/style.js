@@ -8,7 +8,7 @@ export const AppointmentsList = styled(FlatList)`
 `;
 
 export const AppointmentCard = styled.View`
-	height: 100px;
+	height: 115px;
 	elevation: 5;
 	width: 100%;
 	align-items: center;
@@ -19,7 +19,7 @@ export const AppointmentCard = styled.View`
 `;
 
 export const ProfileImage = styled.Image`
-	height: 100%;
+	height: 80px;
 	aspect-ratio: 1/1;
 	width: auto;
 	object-fit: cover;

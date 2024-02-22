@@ -19,6 +19,8 @@ export const Appointment = ({
 	patientName,
 	appointmentTime,
 	appointmentStatus,
+	cancelFn,
+	viewMedicalRecordsFn,
 }) => {
 	return (
 		<AppointmentCard>
@@ -79,7 +81,8 @@ export const Appointment = ({
 							<AltLink
 								textDecoration={'none'}
 								linkColor={Colors.red}
-								style={{ alignSelf: 'flex-end' }}
+								style={{ alignSelf: 'center' }}
+								onPress={cancelFn}
 							>
 								Cancelar
 							</AltLink>
@@ -87,7 +90,8 @@ export const Appointment = ({
 							<AltLink
 								textDecoration={'none'}
 								linkColor={Colors.secondary_v1}
-								style={{ alignSelf: 'flex-end' }}
+								style={{ alignSelf: 'center' }}
+								onPress={viewMedicalRecordsFn}
 							>
 								Ver Prontuário
 							</AltLink>

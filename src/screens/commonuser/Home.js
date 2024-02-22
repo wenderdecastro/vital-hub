@@ -8,6 +8,7 @@ import { FilterContainer } from '../../components/Buttons/style';
 import { useState } from 'react';
 import { Appointment, Appointments } from '../../components/List';
 import { AppointmentsList } from '../../components/List/style';
+import { CancelModal, MedicalRecordModal } from '../../components/Modal';
 
 export const Home = () => {
 	const [AppointmentList, setAppointmentList] = useState([
@@ -54,52 +55,76 @@ export const Home = () => {
 	]);
 
 	const [listView, setListView] = useState('scheduled');
+
+	const [cancelModalVisible, setCancelModalVisible] = useState(false);
+	const [medicalRecordModalVisible, setMedicalRecordModalVisible] =
+		useState(false);
 	return (
-		<ContainerBox>
-			<StatusBar />
-
-			{/* Header */}
-			<Header />
-
-			{/* Calendar */}
-			<WeeklyCalendar />
-
-			{/* Filtros (button) */}
-			<FilterContainer>
-				<AppointmentFilter
-					textButton={'Agendadas'}
-					clickButton={listView === 'scheduled'}
-					onPress={() => setListView('scheduled')}
-				/>
-				<AppointmentFilter
-					textButton={'Realizadas'}
-					clickButton={listView === 'terminated'}
-					onPress={() => setListView('terminated')}
-				/>
-				<AppointmentFilter
-					textButton={'Canceladas'}
-					clickButton={listView === 'cancelled'}
-					onPress={() => setListView('cancelled')}
-				/>
-			</FilterContainer>
-
-			<AppointmentsList
-				data={AppointmentList}
-				key={(item) => item.id}
-				renderItem={({ item }) =>
-					listView == item.appointmentStatus && (
-						<Appointment
-							patientName={item.patientName}
-							patientAge={item.patientAge}
-							appointmentTime={item.appointmentTime}
-							appointmentPriority={item.appointmentPriority}
-							appointmentStatus={item.appointmentStatus}
-						/>
-					)
-				}
+		<>
+			<CancelModal
+				isVisible={cancelModalVisible}
+				hideModalFn={() => {
+					setCancelModalVisible(false);
+				}}
 			/>
+			<MedicalRecordModal
+				imgSource={{
+					uri: 'https://http2.mlstatic.com/D_NQ_NP_912498-MLB52128503176_102022-O.png',
+				}}
+				isVisible={true}
+				hideModalFn={() => {
+					setMedicalRecordModalVisible(false);
+				}}
+			/>
+			<ContainerBox>
+				<StatusBar />
 
-			{/* Cards */}
-		</ContainerBox>
+				{/* Header */}
+				<Header />
+
+				{/* Calendar */}
+				<WeeklyCalendar />
+
+				{/* Filtros (button) */}
+				<FilterContainer>
+					<AppointmentFilter
+						textButton={'Agendadas'}
+						clickButton={listView === 'scheduled'}
+						onPress={() => setListView('scheduled')}
+					/>
+					<AppointmentFilter
+						textButton={'Realizadas'}
+						clickButton={listView === 'terminated'}
+						onPress={() => setListView('terminated')}
+					/>
+					<AppointmentFilter
+						textButton={'Canceladas'}
+						clickButton={listView === 'cancelled'}
+						onPress={() => setListView('cancelled')}
+					/>
+				</FilterContainer>
+
+				<AppointmentsList
+					data={AppointmentList}
+					key={(item) => item.id}
+					renderItem={({ item }) =>
+						listView == item.appointmentStatus && (
+							<Appointment
+								patientName={item.patientName}
+								patientAge={item.patientAge}
+								appointmentTime={item.appointmentTime}
+								appointmentPriority={item.appointmentPriority}
+								appointmentStatus={item.appointmentStatus}
+								cancelFn={() => {
+									setCancelModalVisible(true);
+								}}
+							/>
+						)
+					}
+				/>
+
+				{/* Cards */}
+			</ContainerBox>
+		</>
 	);
 };
