@@ -1,29 +1,30 @@
 import styled from 'styled-components/native';
 import { Colors } from '../../utils/Colors';
 
-export const Input = styled.TextInput.attrs({
-	placeholderTextColor: Colors.primary_v1,
-})`
+export const Input = styled.TextInput.attrs((props) => ({
+	placeholderTextColor: props.isReadOnly ? Colors.gray_v1 : Colors.primary_v1,
+	readOnly: props.isReadOnly ? true : false,
+}))`
 	border-radius: 5px;
-	border: 2px ${Colors.primary};
+	border: ${(props) => (props.isReadOnly ? 0 : 2)}px;
+	border-color: ${(props) =>
+		props.isReadOnly ? Colors.transparent : Colors.primary};
 	width: 100%;
 	height: 55px;
-	color: ${Colors.primary_v1};
+	color: ${(props) =>
+		props.isReadOnly ? Colors.gray_v1 : Colors.primary_v2};
 	font-size: 16px;
-	font-family: 'MontserratAlternates_600SemiBold';
+	font-family: ${(props) =>
+		props.isReadOnly
+			? 'MontserratAlternates_500Medium'
+			: 'MontserratAlternates_600SemiBold'};
 	padding: 15px;
-	margin-top: 5%;
+	background-color: ${(props) =>
+		props.isReadOnly ? Colors.white_v1 : Colors.transparent};
+	margin-top: 10px;
 `;
 
-export const AltInput = styled(Input)`
-	border-radius: 5px;
-	border: none;
-	width: 100%;
-	height: 55px;
-	color: ${Colors.gray_v1};
-	font-size: 16px;
-	font-family: 'MontserratAlternates_500Medium';
-	padding: 15px;
-	margin-top: 10px;
-	background-color: ${Colors.white_v1};
+export const LargeInput = styled(Input)`
+	text-align-vertical: top;
+	height: ${(props) => props.InputHeight}%;
 `;

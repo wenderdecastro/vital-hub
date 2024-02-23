@@ -10,9 +10,11 @@ import { Spacing } from '../../utils/Components';
 import { Button } from '../../components/Buttons';
 import { ScrollView } from 'react-native';
 import { useState } from 'react';
+import { LargeInput } from '../../components/Input/style';
+import { Link } from '../../components/Link/style';
 
-export const ProfileScreen = () => {
-	const [isReadOnly, setIsReadOnly] = useState(false);
+export const MedicalRecordScreen = () => {
+	const [isReadOnly, setIsReadOnly] = useState(true);
 	return (
 		<ScrollView>
 			<ContainerBox>
@@ -27,35 +29,27 @@ export const ProfileScreen = () => {
 				/>
 				<Spacing size={100} />
 				<InputView>
-					<LabelledInput
+					<LargeInput
 						isReadOnly={isReadOnly}
-						labeltext={'Data de nascimento:'}
-						placeholder={'dd/mm/aaaa'}
+						labeltext={'Descrição da consulta:'}
+						placeholder={'Descrição'}
 					/>
-					<LabelledInput
+					<LargeInput
 						isReadOnly={isReadOnly}
-						labeltext={'CPF:'}
-						placeholder={'XXX.XXX.XXX-XX'}
+						labeltext={'Diagnóstico do paciente:'}
+						placeholder={'Diagnóstico'}
 					/>
-					<LabelledInput
+					<LargeInput
+						InputHeight={33}
 						isReadOnly={isReadOnly}
-						labeltext={'Endereço'}
-						placeholder={'ex: Rua Fulano de Tal, 2'}
+						labeltext={'Prescrição médica'}
+						placeholder={'Prescrição médica'}
 					/>
-					<InputRow>
-						<ShortLabelledInput
-							isReadOnly={isReadOnly}
-							labeltext={'CEP:'}
-							placeholder={'00000-000'}
-						/>
-						<ShortLabelledInput
-							isReadOnly={isReadOnly}
-							labeltext={'Cidade:'}
-							placeholder={'ex: São Paulo - SP'}
-						/>
-					</InputRow>
+
 					<Button title={'Salvar'} />
-					<Button title={'Editar'} />
+					{isReadOnly ? <Button title={'Editar'} /> : <></>}
+
+					<Link>Cancelar</Link>
 					<Spacing size={50} />
 				</InputView>
 			</ContainerBox>

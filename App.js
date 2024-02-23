@@ -21,6 +21,7 @@ import { RegisterScreen } from './src/screens/authentication/RegisterScreen';
 import { EmailConfirmationScreen } from './src/screens/authentication/EmailConfirmationScreen';
 import { ProfileScreen } from './src/screens/commonuser/ProfileScreen';
 import { Home } from './src/screens/commonuser/Home';
+import { MedicalRecordScreen } from './src/screens/medic/MedicalRecordScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -88,6 +89,11 @@ export default function App() {
 					name="Home"
 					component={Home}
 					options={{ title: 'Home', headerShown: false }}
+				/>
+				<Stack.Screen
+					name="MedicalRecord"
+					component={MedicalRecordScreen}
+					options={{ title: 'MedicalRecord', headerShown: false }}
 				/>
 			</Stack.Navigator>
 		</NavigationContainer>

@@ -8,7 +8,7 @@ export const ButtonContainer = styled.TouchableOpacity`
 	justify-content: center;
 	background-color: ${Colors.secondary};
 	border-radius: 8px;
-	margin-top: 10%;
+	margin-top: 30px;
 `;
 
 export const GoogleButtonContainer = styled(ButtonContainer)`
@@ -16,7 +16,7 @@ export const GoogleButtonContainer = styled(ButtonContainer)`
 	border: 1px ${Colors.secondary};
 	flex-direction: row;
 	gap: 30px;
-	margin-top: 5%;
+	margin-top: 15px;
 `;
 
 export const ButtonText = styled.Text`
