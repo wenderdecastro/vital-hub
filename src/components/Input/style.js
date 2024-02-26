@@ -1,6 +1,11 @@
 import styled from 'styled-components/native';
 import { Colors } from '../../utils/Colors';
 
+export const InputBox = styled.View`
+	margin-top: 20px;
+	width: 100%;
+`;
+
 export const Input = styled.TextInput.attrs((props) => ({
 	placeholderTextColor: props.isReadOnly ? Colors.gray_v1 : Colors.primary_v1,
 	readOnly: props.isReadOnly ? true : false,
@@ -26,5 +31,5 @@ export const Input = styled.TextInput.attrs((props) => ({
 
 export const LargeInput = styled(Input)`
 	text-align-vertical: top;
-	height: ${(props) => props.InputHeight}%;
+	height: ${(props) => props.inputHeight}px;
 `;

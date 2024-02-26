@@ -6,8 +6,8 @@ import { ContainerBox } from '../../components/Container/style';
 import { AppointmentFilter, ThreeButtonSwitch } from '../../components/Buttons';
 import { FilterContainer } from '../../components/Buttons/style';
 import { useState } from 'react';
-import { Appointment, Appointments } from '../../components/List';
-import { AppointmentsList } from '../../components/List/style';
+import { AppointmentCard, Appointments } from '../../components/Card';
+import { CardList } from '../../components/Card/style';
 import { CancelModal, MedicalRecordModal } from '../../components/Modal';
 
 export const Home = () => {
@@ -68,10 +68,13 @@ export const Home = () => {
 				}}
 			/>
 			<MedicalRecordModal
+				patientAge={22}
+				patientName={'Tasmania Souza'}
+				patientEmail={'ribossomos@gmail'}
 				imgSource={{
 					uri: 'https://http2.mlstatic.com/D_NQ_NP_912498-MLB52128503176_102022-O.png',
 				}}
-				isVisible={true}
+				isVisible={medicalRecordModalVisible}
 				hideModalFn={() => {
 					setMedicalRecordModalVisible(false);
 				}}
@@ -104,12 +107,12 @@ export const Home = () => {
 					/>
 				</FilterContainer>
 
-				<AppointmentsList
+				<CardList
 					data={AppointmentList}
 					key={(item) => item.id}
 					renderItem={({ item }) =>
 						listView == item.appointmentStatus && (
-							<Appointment
+							<AppointmentCard
 								patientName={item.patientName}
 								patientAge={item.patientAge}
 								appointmentTime={item.appointmentTime}
@@ -117,6 +120,9 @@ export const Home = () => {
 								appointmentStatus={item.appointmentStatus}
 								cancelFn={() => {
 									setCancelModalVisible(true);
+								}}
+								cardClickFn={() => {
+									setMedicalRecordModalVisible(true);
 								}}
 							/>
 						)

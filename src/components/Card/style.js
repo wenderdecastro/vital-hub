@@ -2,12 +2,12 @@ import styled from 'styled-components/native';
 import { Colors } from '../../utils/Colors';
 import { FlatList } from 'react-native';
 
-export const AppointmentsList = styled(FlatList)`
+export const CardList = styled(FlatList)`
 	width: 88%;
 	margin-top: 8%;
 `;
 
-export const AppointmentCard = styled.View`
+export const Card = styled.View`
 	height: 115px;
 	elevation: 5;
 	width: 100%;
@@ -26,7 +26,7 @@ export const ProfileImage = styled.Image`
 	border-radius: 5px;
 `;
 
-export const AppointmentCardContent = styled.View`
+export const CardContent = styled.View`
 	width: 90%;
 	align-items: center;
 	justify-content: center;
@@ -48,7 +48,7 @@ export const ClockBox = styled.View`
 	gap: 5px;
 `;
 
-export const AppointmentCardContentBox = styled.View`
+export const CardContentBox = styled.View`
 	width: 100%;
 	align-items: center;
 	justify-content: space-between;
@@ -57,7 +57,7 @@ export const AppointmentCardContentBox = styled.View`
 	height: 40%;
 `;
 
-export const AppointmentCardTextBox = styled.View`
+export const CardTextBox = styled.View`
 	width: 100%;
 	align-items: flex-start;
 	justify-content: space-between;

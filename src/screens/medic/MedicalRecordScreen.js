@@ -1,6 +1,10 @@
 import { FloatingSection } from '../../components/Misc/FloatingSection';
 import { PictureImage } from '../../components/Picture/style';
-import { LabelledInput, ShortLabelledInput } from '../../components/Input';
+import {
+	LabelledInput,
+	LargeLabelledInput,
+	ShortLabelledInput,
+} from '../../components/Input';
 import {
 	ContainerBox,
 	InputRow,
@@ -10,7 +14,7 @@ import { Spacing } from '../../utils/Components';
 import { Button } from '../../components/Buttons';
 import { ScrollView } from 'react-native';
 import { useState } from 'react';
-import { LargeInput } from '../../components/Input/style';
+import { Input, LargeInput } from '../../components/Input/style';
 import { Link } from '../../components/Link/style';
 
 export const MedicalRecordScreen = () => {
@@ -29,25 +33,35 @@ export const MedicalRecordScreen = () => {
 				/>
 				<Spacing size={100} />
 				<InputView>
-					<LargeInput
+					<LargeLabelledInput
+						inputHeight={150}
 						isReadOnly={isReadOnly}
 						labeltext={'Descrição da consulta:'}
 						placeholder={'Descrição'}
 					/>
-					<LargeInput
+					<LabelledInput
 						isReadOnly={isReadOnly}
 						labeltext={'Diagnóstico do paciente:'}
 						placeholder={'Diagnóstico'}
 					/>
-					<LargeInput
-						InputHeight={33}
+					<LargeLabelledInput
+						inputHeight={150}
 						isReadOnly={isReadOnly}
 						labeltext={'Prescrição médica'}
 						placeholder={'Prescrição médica'}
 					/>
 
 					<Button title={'Salvar'} />
-					{isReadOnly ? <Button title={'Editar'} /> : <></>}
+					{isReadOnly ? (
+						<Button
+							title={'Editar'}
+							buttonFn={() => {
+								setIsReadOnly(false);
+							}}
+						/>
+					) : (
+						<></>
+					)}
 
 					<Link>Cancelar</Link>
 					<Spacing size={50} />

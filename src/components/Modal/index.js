@@ -36,13 +36,14 @@ export const MedicalRecordModal = ({
 	imgSource,
 	patientAge,
 	patientEmail,
+	patientName,
 }) => {
 	return (
 		<Modal isVisible={isVisible}>
 			<ModalImage source={imgSource} />
-			<Title>Tasmania da Silva</Title>
-			<RawText fontSize={18}>
-				18 anos juliofrigideira@xerecamail.com
+			<Title>{patientName}</Title>
+			<RawText fontSize={16}>
+				{patientAge} anos {patientEmail}
 			</RawText>
 
 			<Button title={'Inserir prontuário'} />

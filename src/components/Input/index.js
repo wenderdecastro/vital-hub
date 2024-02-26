@@ -1,21 +1,39 @@
 import { View } from 'react-native';
 import { Label } from '../Text/style';
-import { AltInput, Input } from './style';
+import { Input, InputBox, LargeInput } from './style';
 
 export const LabelledInput = ({ placeholder, labeltext, isReadOnly }) => {
 	return (
-		<View style={{ width: '100%', marginTop: 20 }}>
+		<InputBox>
 			<Label>{labeltext}</Label>
 			<Input placeholder={placeholder} isReadOnly={isReadOnly} />
-		</View>
+		</InputBox>
 	);
 };
 
 export const ShortLabelledInput = ({ placeholder, labeltext, isReadOnly }) => {
 	return (
-		<View style={{ width: '47.5%', marginTop: 20 }}>
+		<InputBox style={{ width: '47.5%' }}>
 			<Label>{labeltext}</Label>
 			<Input placeholder={placeholder} isReadOnly={isReadOnly} />
-		</View>
+		</InputBox>
+	);
+};
+
+export const LargeLabelledInput = ({
+	inputHeight,
+	placeholder,
+	labeltext,
+	isReadOnly,
+}) => {
+	return (
+		<InputBox>
+			<Label>{labeltext}</Label>
+			<LargeInput
+				inputHeight={inputHeight}
+				placeholder={placeholder}
+				isReadOnly={isReadOnly}
+			/>
+		</InputBox>
 	);
 };

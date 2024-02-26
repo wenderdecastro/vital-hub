@@ -9,9 +9,9 @@ import {
 } from './style';
 import { AntDesign } from '@expo/vector-icons';
 
-export const Button = ({ title }) => {
+export const Button = ({ title, buttonFn }) => {
 	return (
-		<ButtonContainer>
+		<ButtonContainer onPress={buttonFn}>
 			<ButtonText>{title}</ButtonText>
 		</ButtonContainer>
 	);

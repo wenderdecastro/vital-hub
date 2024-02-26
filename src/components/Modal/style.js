@@ -25,6 +25,6 @@ export const ModalBackground = styled.View`
 
 export const ModalImage = styled.Image`
 	width: 100%;
-	height: 50%;
+	height: 180px;
 	border-radius: 10px;
 `;

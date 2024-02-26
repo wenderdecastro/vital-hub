@@ -22,6 +22,7 @@ import { EmailConfirmationScreen } from './src/screens/authentication/EmailConfi
 import { ProfileScreen } from './src/screens/commonuser/ProfileScreen';
 import { Home } from './src/screens/commonuser/Home';
 import { MedicalRecordScreen } from './src/screens/medic/MedicalRecordScreen';
+import { SelectMedicScreen } from './src/screens/commonuser/SelectMedicScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -94,6 +95,11 @@ export default function App() {
 					name="MedicalRecord"
 					component={MedicalRecordScreen}
 					options={{ title: 'MedicalRecord', headerShown: false }}
+				/>
+				<Stack.Screen
+					name="SelectMedic"
+					component={SelectMedicScreen}
+					options={{ title: 'SelectMedic', headerShown: false }}
 				/>
 			</Stack.Navigator>
 		</NavigationContainer>
