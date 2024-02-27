@@ -3,8 +3,8 @@ import { Header } from '../../components/Header';
 import { WeeklyCalendar } from '../../components/Calendar/WeeklyCalendar';
 import { Container } from '../../components/Container';
 import { ContainerBox } from '../../components/Container/style';
-import { AppointmentFilter, ThreeButtonSwitch } from '../../components/Buttons';
-import { FilterContainer } from '../../components/Buttons/style';
+import { ThreeButtonSwitch } from '../../components/Buttons';
+import { SwitchContainer } from '../../components/Buttons/style';
 import { useState } from 'react';
 import { AppointmentCard, Appointments } from '../../components/Card';
 import { CardList } from '../../components/Card/style';
@@ -89,23 +89,23 @@ export const Home = () => {
 				<WeeklyCalendar />
 
 				{/* Filtros (button) */}
-				<FilterContainer>
-					<AppointmentFilter
+				<SwitchContainer>
+					<ThreeButtonSwitch
 						textButton={'Agendadas'}
 						clickButton={listView === 'scheduled'}
 						onPress={() => setListView('scheduled')}
 					/>
-					<AppointmentFilter
+					<ThreeButtonSwitch
 						textButton={'Realizadas'}
 						clickButton={listView === 'terminated'}
 						onPress={() => setListView('terminated')}
 					/>
-					<AppointmentFilter
+					<ThreeButtonSwitch
 						textButton={'Canceladas'}
 						clickButton={listView === 'cancelled'}
 						onPress={() => setListView('cancelled')}
 					/>
-				</FilterContainer>
+				</SwitchContainer>
 
 				<Container>
 					<CardList

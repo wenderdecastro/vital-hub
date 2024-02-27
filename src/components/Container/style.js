@@ -48,3 +48,17 @@ export const InputView = styled.View`
 	width: 88%;
 	background-color: #fff;
 `;
+
+export const BlankContainer = styled.View`
+	height: 150px;
+	background-color: ${Colors.white_v1};
+	justify-content: center;
+	vertical-align: baseline;
+	align-items: center;
+	gap: 10px;
+	margin: 10px 0px;
+
+	flex-direction: row;
+	width: 100%;
+	border-radius: 5px;
+`;

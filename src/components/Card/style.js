@@ -43,9 +43,9 @@ export const ClockBox = styled.View`
 	background-color: ${(props) => props.boxColor};
 	justify-content: center;
 	align-items: center;
-	text-align: center;
-	width: 100px;
+	width: 120px;
 	padding: 7px;
+	height: 100%;
 	border-radius: 5px;
 	align-self: flex-start;
 	gap: 5px;
@@ -57,12 +57,12 @@ export const CardContentBox = styled.View`
 	justify-content: space-between;
 	text-align: center;
 	flex-direction: row;
-	height: 40%;
+	flex: 1;
 `;
 
 export const CardTextBox = styled.View`
 	width: 100%;
 	align-items: flex-start;
 	justify-content: space-between;
-	height: 60%;
+	flex: 2;
 `;

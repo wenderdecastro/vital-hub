@@ -11,6 +11,16 @@ export const ModalContainer = styled.View`
 	justify-content: space-between;
 	align-items: center;
 `;
+export const BottomModalContainer = styled.View`
+	display: ${(props) => (props.visible ? 'flex' : 'none')};
+	background-color: #fff;
+	width: 100%;
+	height: 80%;
+	z-index: 10;
+	border-radius: 15px;
+	padding: 40px 30px;
+	justify-content: space-between;
+`;
 
 export const ModalBackground = styled.View`
 	width: 100%;

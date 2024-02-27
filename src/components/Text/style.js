@@ -29,7 +29,7 @@ export const AltText = styled(RawText)`
 
 export const Label = styled(AltText)`
 	font-family: 'Quicksand_600SemiBold';
-	font-size: 18px;
+	font-size: ${(props) => (props.fontSize ? props.fontSize : 18)}px;
 	margin-top: none;
 	align-self: flex-start;
 `;

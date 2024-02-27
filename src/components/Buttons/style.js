@@ -11,6 +11,16 @@ export const ButtonContainer = styled.TouchableOpacity`
 	margin-top: 30px;
 `;
 
+export const AltButtonContainer = styled.TouchableOpacity`
+	width: 50%;
+	height: 55px;
+	align-items: center;
+	justify-content: center;
+	background-color: ${(props) =>
+		props.buttonColor ? props.buttonColor : Colors.primary};
+	border-radius: 8px;
+`;
+
 export const GoogleButtonContainer = styled(ButtonContainer)`
 	background-color: ${Colors.white};
 	border: 1px ${Colors.secondary};
@@ -51,7 +61,7 @@ export const ButtonTabStyle = styled.TouchableOpacity`
 
 export const SwitchButtonText = styled.Text`
 	font-size: 12px;
-	font-family: ' MontserratAlternates_600SemiBold';
+	font-family: 'MontserratAlternates_600SemiBold';
 
 	${(props) =>
 		props.clickButton
@@ -63,7 +73,7 @@ export const SwitchButtonText = styled.Text`
 			  `}
 `;
 
-export const FilterContainer = styled.View`
+export const SwitchContainer = styled.View`
 	width: 90%;
 	flex-direction: row;
 	justify-content: space-between;

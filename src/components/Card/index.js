@@ -45,7 +45,11 @@ export const AppointmentCard = ({
 									size={24}
 									color={Colors.gray_v6}
 								/>
-								<Label style={{ height: '100%' }}>
+								<Label
+									fontSize={16}
+									textColor={Colors.gray_v4}
+									style={{ height: '100%' }}
+								>
 									{appointmentPriority}
 								</Label>
 							</RowBox>
@@ -68,7 +72,7 @@ export const AppointmentCard = ({
 									}
 								/>
 								<Label
-									style={{ height: '100%' }}
+									style={{ marginTop: -6 }}
 									textColor={
 										appointmentStatus == 'scheduled'
 											? Colors.primary

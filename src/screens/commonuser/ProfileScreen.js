@@ -10,9 +10,12 @@ import { Spacing } from '../../utils/Components';
 import { Button } from '../../components/Buttons';
 import { ScrollView } from 'react-native';
 import { useState } from 'react';
+import { AltButtonContainer, ButtonText } from '../../components/Buttons/style';
+import { Colors } from '../../utils/Colors';
+import { Link } from '../../components/Link/style';
 
 export const ProfileScreen = () => {
-	const [isReadOnly, setIsReadOnly] = useState(false);
+	const [isReadOnly, setIsReadOnly] = useState(true);
 	return (
 		<ScrollView>
 			<ContainerBox>
@@ -55,7 +58,22 @@ export const ProfileScreen = () => {
 						/>
 					</InputRow>
 					<Button title={'Salvar'} />
-					<Button title={'Editar'} />
+					{isReadOnly == true ? (
+						<Button
+							title={'Editar'}
+							buttonFn={() => setIsReadOnly(false)}
+						/>
+					) : (
+						<Link onPress={() => setIsReadOnly(true)}>
+							Cancelar
+						</Link>
+					)}
+
+					<Spacing size={30} />
+
+					<AltButtonContainer buttonColor={Colors.gray_v5}>
+						<ButtonText>Sair do App</ButtonText>
+					</AltButtonContainer>
 					<Spacing size={50} />
 				</InputView>
 			</ContainerBox>

@@ -41,19 +41,3 @@ export const ThreeButtonSwitch = ({
 		</ButtonTabStyle>
 	);
 };
-
-export const AppointmentFilter = ({
-	textButton,
-	clickButton = false,
-	onPress,
-}) => {
-	return (
-		// Botao
-		// Texto do botao
-		<ButtonTabStyle clickButton={clickButton} onPress={onPress}>
-			<SwitchButtonText clickButton={clickButton}>
-				{textButton}
-			</SwitchButtonText>
-		</ButtonTabStyle>
-	);
-};

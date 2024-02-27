@@ -1,10 +1,15 @@
 import { Spacing } from '../../utils/Components';
-import { Button } from '../Buttons';
+import { Button, ThreeButtonSwitch } from '../Buttons';
 import { RowBox } from '../Container/style';
 import { Link } from '../Link/style';
 import { RawText } from '../Text/style';
 import { Title } from '../Title/style';
-import { ModalBackground, ModalContainer, ModalImage } from './style';
+import {
+	BottomModalContainer,
+	ModalBackground,
+	ModalContainer,
+	ModalImage,
+} from './style';
 
 export const Modal = ({ isVisible, children }) => {
 	return (
@@ -50,5 +55,17 @@ export const MedicalRecordModal = ({
 
 			<Link onPress={hideModalFn}>Cancelar</Link>
 		</Modal>
+	);
+};
+
+export const ScheduleAppointment = () => {
+	return (
+		<ModalBackground visible={isVisible}>
+			<BottomModalContainer visible={isVisible}>
+				<Title>Agendar consulta</Title>
+				<Label fontSize={14}>Qual o nível da consulta?</Label>
+				<ThreeButtonSwitch></ThreeButtonSwitch>
+			</BottomModalContainer>
+		</ModalBackground>
 	);
 };
