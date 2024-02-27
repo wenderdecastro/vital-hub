@@ -107,28 +107,31 @@ export const Home = () => {
 					/>
 				</FilterContainer>
 
-				<CardList
-					data={AppointmentList}
-					key={(item) => item.id}
-					renderItem={({ item }) =>
-						listView == item.appointmentStatus && (
-							<AppointmentCard
-								patientName={item.patientName}
-								patientAge={item.patientAge}
-								appointmentTime={item.appointmentTime}
-								appointmentPriority={item.appointmentPriority}
-								appointmentStatus={item.appointmentStatus}
-								cancelFn={() => {
-									setCancelModalVisible(true);
-								}}
-								cardClickFn={() => {
-									setMedicalRecordModalVisible(true);
-								}}
-							/>
-						)
-					}
-				/>
-
+				<Container>
+					<CardList
+						data={AppointmentList}
+						key={(item) => item.id}
+						renderItem={({ item }) =>
+							listView == item.appointmentStatus && (
+								<AppointmentCard
+									patientName={item.patientName}
+									patientAge={item.patientAge}
+									appointmentTime={item.appointmentTime}
+									appointmentPriority={
+										item.appointmentPriority
+									}
+									appointmentStatus={item.appointmentStatus}
+									cancelFn={() => {
+										setCancelModalVisible(true);
+									}}
+									cardClickFn={() => {
+										setMedicalRecordModalVisible(true);
+									}}
+								/>
+							)
+						}
+					/>
+				</Container>
 				{/* Cards */}
 			</ContainerBox>
 		</>

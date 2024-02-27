@@ -23,6 +23,7 @@ import { ProfileScreen } from './src/screens/commonuser/ProfileScreen';
 import { Home } from './src/screens/commonuser/Home';
 import { MedicalRecordScreen } from './src/screens/medic/MedicalRecordScreen';
 import { SelectMedicScreen } from './src/screens/commonuser/SelectMedicScreen';
+import { PrescriptionScreen } from './src/screens/commonuser/PrescriptionScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -97,9 +98,9 @@ export default function App() {
 					options={{ title: 'MedicalRecord', headerShown: false }}
 				/>
 				<Stack.Screen
-					name="SelectMedic"
-					component={SelectMedicScreen}
-					options={{ title: 'SelectMedic', headerShown: false }}
+					name="Prescription"
+					component={PrescriptionScreen}
+					options={{ title: 'Prescription', headerShown: false }}
 				/>
 			</Stack.Navigator>
 		</NavigationContainer>

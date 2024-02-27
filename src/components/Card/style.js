@@ -3,7 +3,10 @@ import { Colors } from '../../utils/Colors';
 import { FlatList } from 'react-native';
 
 export const CardList = styled(FlatList)`
-	width: 88%;
+	width: 100%;
+	flex-grow: 0;
+	height: 60%;
+
 	margin-top: 8%;
 `;
 

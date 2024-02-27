@@ -12,7 +12,9 @@ export const RawText = styled.Text`
 
 export const ThinText = styled(RawText)`
 	font-family: 'Quicksand_400Regular';
+	color: ${(props) => (props.textColor ? props.textColor : Colors.gray_v4)};
 	margin: 0;
+	font-size: 16px;
 `;
 
 export const MediumText = styled(RawText)`

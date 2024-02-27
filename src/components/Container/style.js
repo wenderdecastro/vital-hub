@@ -3,6 +3,7 @@ import { Colors } from '../../utils/Colors';
 
 export const ContainerBox = styled.SafeAreaView`
 	flex: 1;
+	width: 100%;
 	align-items: center;
 	background-color: #fff;
 `;

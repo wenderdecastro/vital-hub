@@ -111,20 +111,25 @@ export const DoctorCard = ({
 	doctorName,
 	doctorSpeciality,
 	isDoctorAvaliable,
+	cardClickFn,
 }) => {
 	return (
-		<Card>
-			<CardContent>
-				<ProfileImage
-					source={{
-						uri: 'https://lumiere-a.akamaihd.net/v1/images/dr_strange_2016_002_bcd5d6a3.jpeg',
-					}}
-				/>
-				<CardTextBox>
-					<AltText fontSize={24}>{doctorName}</AltText>
-					<ThinText>{doctorSpeciality}</ThinText>
-				</CardTextBox>
-			</CardContent>
-		</Card>
+		<TouchableOpacity onPress={cardClickFn}>
+			<Card>
+				<CardContent>
+					<ProfileImage
+						source={{
+							uri: 'https://lumiere-a.akamaihd.net/v1/images/dr_strange_2016_002_bcd5d6a3.jpeg',
+						}}
+					/>
+					<Box>
+						<CardTextBox>
+							<AltText fontSize={24}>{doctorName}</AltText>
+							<ThinText>{doctorSpeciality}</ThinText>
+						</CardTextBox>
+					</Box>
+				</CardContent>
+			</Card>
+		</TouchableOpacity>
 	);
 };
