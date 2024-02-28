@@ -19,4 +19,5 @@ export const Colors = {
 	white_v1: '#F5F3F3',
 	red: '#C81D25',
 	transparent: 'rgba(255, 0, 0, 0.0);',
+	yellow: '#F9A620',
 };

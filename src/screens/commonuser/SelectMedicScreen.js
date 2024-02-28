@@ -48,7 +48,7 @@ export const SelectMedicScreen = () => {
 				}
 			/>
 
-			<Button title={'Cadastrar'} />
+			<Button title={'Continuar'} />
 
 			<Link>Cancelar</Link>
 		</Container>

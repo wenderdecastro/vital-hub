@@ -17,9 +17,20 @@ export const ContainerContent = styled.View`
 export const Box = styled.View`
 	flex: 1;
 `;
+
+export const Row = styled.View`
+	flex-direction: row;
+`;
+
 export const RowBox = styled(Box)`
 	flex-direction: row;
 	width: 100%;
+	align-items: center;
+`;
+
+export const CardRow = styled.View`
+	flex-direction: row;
+	justify-content: space-between;
 	align-items: center;
 `;
 

@@ -38,7 +38,7 @@ export const CardContent = styled.View`
 	flex-direction: row;
 `;
 
-export const ClockBox = styled.View`
+export const GreenBox = styled.View`
 	flex-direction: row;
 	background-color: ${(props) => props.boxColor};
 	justify-content: center;
@@ -63,6 +63,7 @@ export const CardContentBox = styled.View`
 export const CardTextBox = styled.View`
 	width: 100%;
 	align-items: flex-start;
-	justify-content: space-between;
+	justify-content: center;
+	gap: 10px;
 	flex: 2;
 `;

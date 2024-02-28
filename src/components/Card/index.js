@@ -5,14 +5,16 @@ import {
 	CardContent,
 	CardContentBox,
 	CardTextBox,
-	ClockBox,
+	GreenBox,
 	ProfileImage,
 } from './style';
 import { Entypo } from '@expo/vector-icons';
-import { Box, RowBox } from '../Container/style';
-import { AltText, Label, MediumText, ThinText } from '../Text/style';
+import { Box, CardRow, Row, RowBox } from '../Container/style';
+import { AltText, Label, ThinText } from '../Text/style';
 import { AltLink } from '../Link/style';
 import { TouchableOpacity } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Octicons } from '@expo/vector-icons';
 
 export const AppointmentCard = ({
 	patientAge,
@@ -55,7 +57,7 @@ export const AppointmentCard = ({
 							</RowBox>
 						</CardTextBox>
 						<CardContentBox>
-							<ClockBox
+							<GreenBox
 								boxColor={
 									appointmentStatus == 'scheduled'
 										? Colors.primary_v4
@@ -81,7 +83,7 @@ export const AppointmentCard = ({
 								>
 									{appointmentTime}
 								</Label>
-							</ClockBox>
+							</GreenBox>
 							{appointmentStatus == 'cancelled' ? (
 								<></>
 							) : appointmentStatus == 'scheduled' ? (
@@ -128,9 +130,61 @@ export const DoctorCard = ({
 					/>
 					<Box>
 						<CardTextBox>
-							<AltText fontSize={24}>{doctorName}</AltText>
+							<AltText fontSize={18}>{doctorName}</AltText>
 							<ThinText>{doctorSpeciality}</ThinText>
 						</CardTextBox>
+					</Box>
+				</CardContent>
+			</Card>
+		</TouchableOpacity>
+	);
+};
+export const ClinicCard = ({
+	ClinicName,
+	ClinicCity,
+	ClinicState,
+	ClinicSchedule,
+	ClinicRating,
+	cardClickFn,
+}) => {
+	return (
+		<TouchableOpacity onPress={cardClickFn}>
+			<Card>
+				<CardContent>
+					<Box style={{ gap: 10 }}>
+						<CardRow>
+							<AltText fontSize={18}>{ClinicName}</AltText>
+							<Row>
+								<Octicons
+									name="star-fill"
+									size={24}
+									color={Colors.yellow}
+								/>
+
+								<Label textColor={Colors.yellow}>
+									{ClinicRating}
+								</Label>
+							</Row>
+						</CardRow>
+						<CardRow>
+							<Label
+								textColor={Colors.gray_v2}
+								style={{ alignSelf: 'center' }}
+								fontSize={16}
+							>
+								{ClinicCity}, {ClinicState}
+							</Label>
+							<GreenBox boxColor={Colors.primary_v4}>
+								<MaterialCommunityIcons
+									name="calendar"
+									size={24}
+									color={Colors.primary}
+								/>
+								<Label textColor={Colors.primary} fontSize={16}>
+									{ClinicSchedule}
+								</Label>
+							</GreenBox>
+						</CardRow>
 					</Box>
 				</CardContent>
 			</Card>
