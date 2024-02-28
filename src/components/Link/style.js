@@ -9,7 +9,7 @@ export const Link = styled(AltText)`
 `;
 
 export const AltLink = styled(Link)`
-	font-size: 16px;
+	font-size: ${(props) => (props.fontSize ? props.fontSize : 16)}px;
 	font-family: 'MontserratAlternates_500Medium';
 	color: ${(props) => (props.linkColor ? props.linkColor : Colors.gray_v4)};
 	align-self: flex-start;

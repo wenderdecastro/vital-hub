@@ -15,7 +15,7 @@ export const Circle = styled.TouchableOpacity`
 export const RoundedSquare = styled.TouchableOpacity`
 	position: absolute;
 	bottom: 5%;
-	right: 45%;
+	left: 82.5%;
 	border-radius: 7px;
 	width: 60px;
 	height: 60px;

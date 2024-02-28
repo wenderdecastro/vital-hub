@@ -41,7 +41,7 @@ export const GoogleButtonText = styled(ButtonText)`
 	color: ${Colors.secondary};
 `;
 
-export const ButtonTabStyle = styled.TouchableOpacity`
+export const FilterButtonBox = styled.TouchableOpacity`
 	width: 30%;
 	align-items: center;
 	padding: 12px 0px;
@@ -59,7 +59,7 @@ export const ButtonTabStyle = styled.TouchableOpacity`
 			  `}
 `;
 
-export const SwitchButtonText = styled.Text`
+export const FilterButtonSwitchText = styled.Text`
 	font-size: 12px;
 	font-family: 'MontserratAlternates_600SemiBold';
 
@@ -74,7 +74,39 @@ export const SwitchButtonText = styled.Text`
 `;
 
 export const SwitchContainer = styled.View`
-	width: 90%;
+	width: 88%;
 	flex-direction: row;
 	justify-content: space-between;
+`;
+
+export const ConsultationButtonBox = styled.TouchableOpacity`
+	width: 30%;
+	align-items: center;
+	padding: 12px 0px;
+	border-radius: 5px;
+
+	/* Se o botao estiver cliclado, aplica-se um fundo azul, caso contrario, fundo transparente */
+	${(props) =>
+		props.clickButton
+			? css`
+					background-color: ${Colors.primary};
+			  `
+			: css`
+					background-color: transparent;
+					border: 2px solid ${Colors.primary_v2};
+			  `}
+`;
+
+export const ConsultationButtonSwitchText = styled.Text`
+	font-size: 12px;
+	font-family: 'MontserratAlternates_600SemiBold';
+
+	${(props) =>
+		props.clickButton
+			? css`
+					color: #fbfbfb;
+			  `
+			: css`
+					color: #60bfc5;
+			  `}
 `;

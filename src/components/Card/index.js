@@ -12,9 +12,10 @@ import { Entypo } from '@expo/vector-icons';
 import { Box, CardRow, Row, RowBox } from '../Container/style';
 import { AltText, Label, ThinText } from '../Text/style';
 import { AltLink } from '../Link/style';
-import { TouchableOpacity } from 'react-native';
+import { TouchableHighlight, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
+import { Spacing } from '../../utils/Components';
 
 export const AppointmentCard = ({
 	patientAge,
@@ -27,8 +28,8 @@ export const AppointmentCard = ({
 	cardClickFn,
 }) => {
 	return (
-		<TouchableOpacity onPress={cardClickFn}>
-			<Card>
+		<Card>
+			<TouchableOpacity onPress={cardClickFn}>
 				<CardContent>
 					<ProfileImage
 						source={{
@@ -37,21 +38,19 @@ export const AppointmentCard = ({
 					/>
 					<Box>
 						<CardTextBox>
-							<AltText fontSize={24}>{patientName}</AltText>
+							<AltText fontSize={18}>{patientName}</AltText>
+							<Spacing size={5} />
 							<RowBox>
-								<ThinText style={{ height: '100%' }}>
+								<ThinText style={{ alignSelf: 'flex-start' }}>
 									{patientAge} anos
 								</ThinText>
 								<Entypo
 									name="dot-single"
 									size={24}
 									color={Colors.gray_v6}
+									style={{ marginTop: -10 }}
 								/>
-								<Label
-									fontSize={16}
-									textColor={Colors.gray_v4}
-									style={{ height: '100%' }}
-								>
+								<Label fontSize={16} textColor={Colors.gray_v4}>
 									{appointmentPriority}
 								</Label>
 							</RowBox>
@@ -74,12 +73,13 @@ export const AppointmentCard = ({
 									}
 								/>
 								<Label
-									style={{ marginTop: -6 }}
+									style={{ marginTop: -4 }}
 									textColor={
 										appointmentStatus == 'scheduled'
 											? Colors.primary
 											: Colors.gray_v1
 									}
+									fontSize={16}
 								>
 									{appointmentTime}
 								</Label>
@@ -92,6 +92,7 @@ export const AppointmentCard = ({
 									linkColor={Colors.red}
 									style={{ alignSelf: 'center' }}
 									onPress={cancelFn}
+									fontSize={14}
 								>
 									Cancelar
 								</AltLink>
@@ -101,6 +102,7 @@ export const AppointmentCard = ({
 									linkColor={Colors.secondary_v1}
 									style={{ alignSelf: 'center' }}
 									onPress={viewMedicalRecordsFn}
+									fontSize={14}
 								>
 									Ver Prontuário
 								</AltLink>
@@ -108,8 +110,8 @@ export const AppointmentCard = ({
 						</CardContentBox>
 					</Box>
 				</CardContent>
-			</Card>
-		</TouchableOpacity>
+			</TouchableOpacity>
+		</Card>
 	);
 };
 
@@ -120,8 +122,8 @@ export const DoctorCard = ({
 	cardClickFn,
 }) => {
 	return (
-		<TouchableOpacity onPress={cardClickFn}>
-			<Card>
+		<Card>
+			<TouchableOpacity onPress={cardClickFn}>
 				<CardContent>
 					<ProfileImage
 						source={{
@@ -131,12 +133,13 @@ export const DoctorCard = ({
 					<Box>
 						<CardTextBox>
 							<AltText fontSize={18}>{doctorName}</AltText>
+							<Spacing size={10} />
 							<ThinText>{doctorSpeciality}</ThinText>
 						</CardTextBox>
 					</Box>
 				</CardContent>
-			</Card>
-		</TouchableOpacity>
+			</TouchableOpacity>
+		</Card>
 	);
 };
 export const ClinicCard = ({
@@ -148,8 +151,8 @@ export const ClinicCard = ({
 	cardClickFn,
 }) => {
 	return (
-		<TouchableOpacity onPress={cardClickFn}>
-			<Card>
+		<Card>
+			<TouchableOpacity onPress={cardClickFn}>
 				<CardContent>
 					<Box style={{ gap: 10 }}>
 						<CardRow>
@@ -187,7 +190,7 @@ export const ClinicCard = ({
 						</CardRow>
 					</Box>
 				</CardContent>
-			</Card>
-		</TouchableOpacity>
+			</TouchableOpacity>
+		</Card>
 	);
 };

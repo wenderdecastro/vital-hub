@@ -1,14 +1,15 @@
-import { StatusBar } from 'react-native';
+import { StatusBar, View } from 'react-native';
 import { Header } from '../../components/Header';
 import { WeeklyCalendar } from '../../components/Calendar/WeeklyCalendar';
 import { Container } from '../../components/Container';
 import { ContainerBox } from '../../components/Container/style';
-import { ThreeButtonSwitch } from '../../components/Buttons';
+import { FilterButtonSwitch } from '../../components/Buttons';
 import { SwitchContainer } from '../../components/Buttons/style';
 import { useState } from 'react';
 import { AppointmentCard, Appointments } from '../../components/Card';
 import { CardList } from '../../components/Card/style';
 import { CancelModal, MedicalRecordModal } from '../../components/Modal';
+import { NewScheduleButton } from '../../components/FixedButtons';
 
 export const Home = () => {
 	const [AppointmentList, setAppointmentList] = useState([
@@ -86,21 +87,22 @@ export const Home = () => {
 				<Header />
 
 				{/* Calendar */}
+
 				<WeeklyCalendar />
 
 				{/* Filtros (button) */}
 				<SwitchContainer>
-					<ThreeButtonSwitch
+					<FilterButtonSwitch
 						textButton={'Agendadas'}
 						clickButton={listView === 'scheduled'}
 						onPress={() => setListView('scheduled')}
 					/>
-					<ThreeButtonSwitch
+					<FilterButtonSwitch
 						textButton={'Realizadas'}
 						clickButton={listView === 'terminated'}
 						onPress={() => setListView('terminated')}
 					/>
-					<ThreeButtonSwitch
+					<FilterButtonSwitch
 						textButton={'Canceladas'}
 						clickButton={listView === 'cancelled'}
 						onPress={() => setListView('cancelled')}
@@ -108,6 +110,7 @@ export const Home = () => {
 				</SwitchContainer>
 
 				<Container>
+					<NewScheduleButton />
 					<CardList
 						data={AppointmentList}
 						key={(item) => item.id}

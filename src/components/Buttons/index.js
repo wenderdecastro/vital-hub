@@ -4,8 +4,10 @@ import {
 	ButtonContainer,
 	GoogleButtonContainer,
 	GoogleButtonText,
-	SwitchButtonText,
-	ButtonTabStyle,
+	FilterButtonSwitchText,
+	FilterButtonBox,
+	ConsultationButtonBox,
+	ConsultationButtonSwitchText,
 } from './style';
 import { AntDesign } from '@expo/vector-icons';
 
@@ -26,7 +28,7 @@ export const GoogleButton = () => {
 	);
 };
 
-export const ThreeButtonSwitch = ({
+export const FilterButtonSwitch = ({
 	textButton,
 	clickButton = false,
 	onPress,
@@ -34,10 +36,26 @@ export const ThreeButtonSwitch = ({
 	return (
 		// Botao
 		// Texto do botao
-		<ButtonTabStyle clickButton={clickButton} onPress={onPress}>
-			<SwitchButtonText clickButton={clickButton}>
+		<FilterButtonBox clickButton={clickButton} onPress={onPress}>
+			<FilterButtonSwitchText clickButton={clickButton}>
 				{textButton}
-			</SwitchButtonText>
-		</ButtonTabStyle>
+			</FilterButtonSwitchText>
+		</FilterButtonBox>
+	);
+};
+
+export const ConsultationButtonSwitch = ({
+	textButton,
+	clickButton = false,
+	onPress,
+}) => {
+	return (
+		// Botao
+		// Texto do botao
+		<ConsultationButtonBox clickButton={clickButton} onPress={onPress}>
+			<ConsultationButtonSwitchText clickButton={clickButton}>
+				{textButton}
+			</ConsultationButtonSwitchText>
+		</ConsultationButtonBox>
 	);
 };

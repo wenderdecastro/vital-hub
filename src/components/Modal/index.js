@@ -1,5 +1,9 @@
 import { Spacing } from '../../utils/Components';
-import { Button, ThreeButtonSwitch } from '../Buttons';
+import {
+	Button,
+	ConsultationButtonSwitch,
+	FilterButtonSwitch,
+} from '../Buttons';
 import { RowBox } from '../Container/style';
 import { Link } from '../Link/style';
 import { RawText } from '../Text/style';
@@ -63,8 +67,24 @@ export const ScheduleAppointment = () => {
 		<ModalBackground visible={isVisible}>
 			<BottomModalContainer visible={isVisible}>
 				<Title>Agendar consulta</Title>
-				<Label fontSize={14}>Qual o nível da consulta?</Label>
-				<ThreeButtonSwitch></ThreeButtonSwitch>
+				<Label fontSize={16}>Qual o nível da consulta?</Label>
+				<SwitchContainer>
+					<ConsultationButtonSwitch
+						textButton={'Rotina'}
+						clickButton={listView === 'scheduled'}
+						onPress={() => setListView('scheduled')}
+					/>
+					<ConsultationButtonSwitch
+						textButton={'Exame'}
+						clickButton={listView === 'terminated'}
+						onPress={() => setListView('terminated')}
+					/>
+					<ConsultationButtonSwitch
+						textButton={'Urgência'}
+						clickButton={listView === 'cancelled'}
+						onPress={() => setListView('cancelled')}
+					/>
+				</SwitchContainer>
 			</BottomModalContainer>
 		</ModalBackground>
 	);

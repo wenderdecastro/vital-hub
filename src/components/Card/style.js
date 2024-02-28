@@ -19,6 +19,7 @@ export const Card = styled.View`
 	border-radius: 5px;
 	background-color: white;
 	margin-bottom: 15px;
+	padding: 10px;
 `;
 
 export const ProfileImage = styled.Image`
@@ -30,10 +31,10 @@ export const ProfileImage = styled.Image`
 `;
 
 export const CardContent = styled.View`
-	width: 90%;
+	width: 100%;
 	align-items: center;
 	justify-content: center;
-	height: 80%;
+	height: 100%;
 	gap: 10px;
 	flex-direction: row;
 `;
@@ -64,6 +65,6 @@ export const CardTextBox = styled.View`
 	width: 100%;
 	align-items: flex-start;
 	justify-content: center;
-	gap: 10px;
+	/* gap: 10px; */
 	flex: 2;
 `;
