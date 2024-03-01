@@ -4,11 +4,13 @@ import {
 	ConsultationButtonSwitch,
 	FilterButtonSwitch,
 } from '../Buttons';
+import { SwitchContainer } from '../Buttons/style';
 import { RowBox } from '../Container/style';
 import { Link } from '../Link/style';
-import { RawText } from '../Text/style';
+import { Label, RawText } from '../Text/style';
 import { Title } from '../Title/style';
 import {
+	AltModalBackground,
 	BottomModalContainer,
 	ModalBackground,
 	ModalContainer,
@@ -62,30 +64,30 @@ export const MedicalRecordModal = ({
 	);
 };
 
-export const ScheduleAppointment = () => {
+export const ScheduleAppointmentModal = ({ isVisible }) => {
 	return (
-		<ModalBackground visible={isVisible}>
+		<AltModalBackground visible={isVisible}>
 			<BottomModalContainer visible={isVisible}>
 				<Title>Agendar consulta</Title>
 				<Label fontSize={16}>Qual o nível da consulta?</Label>
 				<SwitchContainer>
 					<ConsultationButtonSwitch
 						textButton={'Rotina'}
-						clickButton={listView === 'scheduled'}
-						onPress={() => setListView('scheduled')}
+						// clickButton={listView === 'scheduled'}
+						// onPress={() => setListView('scheduled')}
 					/>
 					<ConsultationButtonSwitch
 						textButton={'Exame'}
-						clickButton={listView === 'terminated'}
-						onPress={() => setListView('terminated')}
+						// clickButton={listView === 'terminated'}
+						// onPress={() => setListView('terminated')}
 					/>
 					<ConsultationButtonSwitch
 						textButton={'Urgência'}
-						clickButton={listView === 'cancelled'}
-						onPress={() => setListView('cancelled')}
+						// clickButton={listView === 'cancelled'}
+						// onPress={() => setListView('cancelled')}
 					/>
 				</SwitchContainer>
 			</BottomModalContainer>
-		</ModalBackground>
+		</AltModalBackground>
 	);
 };

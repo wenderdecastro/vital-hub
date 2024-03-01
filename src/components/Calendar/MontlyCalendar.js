@@ -1,5 +1,5 @@
 import { Calendar, LocaleConfig } from 'react-native-calendars';
-import { DayContainer, DayText } from './Style';
+import { DayContainer, DayText } from './style';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 
 LocaleConfig.locales['br'] = {
@@ -46,7 +46,12 @@ export const MonthlyCalendar = ({
 			style={styles.calendar}
 			theme={{
 				dotColor: '#5F5C6B',
-				calendarBackground: '#FBFBFB',
+				calendarBackground: '#FFF',
+				textDayFontFamily: 'MontserratAlternates_600SemiBold',
+				textMonthFontSize: 24,
+				textDayHeaderFontFamily: 'Quicksand_600SemiBold',
+				textMonthFontFamily: 'MontserratAlternates_600SemiBold',
+				todayButtonFontFamily: 'MontserratAlternates_600SemiBold',
 			}}
 			dayComponent={({ date, state }) => (
 				<TouchableOpacity
@@ -72,6 +77,9 @@ export const MonthlyCalendar = ({
 
 const styles = StyleSheet.create({
 	calendar: {
-		width: 400,
+		flex: 1,
+		width: 365,
+		height: 500,
+		padding: 0,
 	},
 });

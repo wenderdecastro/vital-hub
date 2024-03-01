@@ -28,6 +28,10 @@ export const ModalBackground = styled.View`
 	align-items: center;
 `;
 
+export const AltModalBackground = styled(ModalBackground)`
+	align-items: flex-end;
+`;
+
 export const ModalImage = styled.Image`
 	width: 100%;
 	height: 180px;

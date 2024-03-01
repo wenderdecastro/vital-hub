@@ -38,7 +38,7 @@ export const SelectClinicScreen = () => {
 
 	return (
 		<Container>
-			<Spacing size={40} />
+			<Spacing size={60} />
 			<Title>Selecionar Clínica</Title>
 			<CardList
 				data={clinicList}

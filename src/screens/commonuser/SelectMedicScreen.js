@@ -33,7 +33,7 @@ export const SelectMedicScreen = () => {
 	const [listView, setListView] = useState(true);
 	return (
 		<Container>
-			<Spacing size={40} />
+			<Spacing size={60} />
 			<Title>Selecionar Médico</Title>
 			<CardList
 				data={DoctorList}

@@ -8,7 +8,12 @@ import { SwitchContainer } from '../../components/Buttons/style';
 import { useState } from 'react';
 import { AppointmentCard, Appointments } from '../../components/Card';
 import { CardList } from '../../components/Card/style';
-import { CancelModal, MedicalRecordModal } from '../../components/Modal';
+import {
+	CancelModal,
+	MedicalRecordModal,
+	ScheduleAppointment,
+	ScheduleAppointmentModal,
+} from '../../components/Modal';
 import { NewScheduleButton } from '../../components/FixedButtons';
 
 export const Home = () => {
@@ -60,6 +65,7 @@ export const Home = () => {
 	const [cancelModalVisible, setCancelModalVisible] = useState(false);
 	const [medicalRecordModalVisible, setMedicalRecordModalVisible] =
 		useState(false);
+	const [NewRecordModalVisible, setNewRecordModalVisible] = useState(true);
 	return (
 		<>
 			<CancelModal
@@ -80,6 +86,8 @@ export const Home = () => {
 					setMedicalRecordModalVisible(false);
 				}}
 			/>
+
+			<ScheduleAppointmentModal isVisible={setNewRecordModalVisible} />
 			<ContainerBox>
 				<StatusBar />
 
@@ -110,7 +118,11 @@ export const Home = () => {
 				</SwitchContainer>
 
 				<Container>
-					<NewScheduleButton />
+					<NewScheduleButton
+						NewScheduleFn={() => {
+							setNewRecordModalVisible();
+						}}
+					/>
 					<CardList
 						data={AppointmentList}
 						key={(item) => item.id}
