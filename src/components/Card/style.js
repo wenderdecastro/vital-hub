@@ -5,7 +5,7 @@ import { FlatList } from 'react-native';
 export const CardList = styled(FlatList)`
 	width: 100%;
 	flex-grow: 0;
-	height: 60%;
+	height: 75%;
 
 	margin-top: 8%;
 `;
@@ -53,7 +53,7 @@ export const GreenBox = styled.View`
 `;
 
 export const CardContentBox = styled.View`
-	width: 100%;
+	width: 95%;
 	align-items: center;
 	justify-content: space-between;
 	text-align: center;

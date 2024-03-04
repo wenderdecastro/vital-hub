@@ -26,6 +26,7 @@ import { SelectMedicScreen } from './src/screens/commonuser/SelectMedicScreen';
 import { PrescriptionScreen } from './src/screens/commonuser/PrescriptionScreen';
 import { SelectClinicScreen } from './src/screens/commonuser/SelectClinicScreen';
 import { SelectDateScreen } from './src/screens/commonuser/SelectDateScreen';
+import { AppointmentMapScreen } from './src/screens/commonuser/AppointmentMapScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -118,6 +119,11 @@ export default function App() {
 					name="SelectDate"
 					component={SelectDateScreen}
 					options={{ title: 'SelectDate', headerShown: false }}
+				/>
+				<Stack.Screen
+					name="AppointmentMap"
+					component={AppointmentMapScreen}
+					options={{ title: 'AppointmentMap', headerShown: false }}
 				/>
 			</Stack.Navigator>
 		</NavigationContainer>

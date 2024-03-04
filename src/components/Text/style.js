@@ -9,12 +9,17 @@ export const RawText = styled.Text`
 	margin-top: 15px;
 	text-align: center;
 `;
+export const AlignedText = styled(RawText)`
+	text-decoration: none;
+	margin-top: 0;
+	align-self: flex-start;
+`;
 
 export const ThinText = styled(RawText)`
 	font-family: 'Quicksand_400Regular';
 	color: ${(props) => (props.textColor ? props.textColor : Colors.gray_v4)};
 	margin: 0;
-	font-size: 16px;
+	font-size: ${(props) => (props.fontSize ? props.fontSize : 16)}px;
 `;
 
 export const MediumText = styled(RawText)`
@@ -30,6 +35,6 @@ export const AltText = styled(RawText)`
 export const Label = styled(AltText)`
 	font-family: 'Quicksand_600SemiBold';
 	font-size: ${(props) => (props.fontSize ? props.fontSize : 18)}px;
-	margin-top: 0;
+	margin-top: 20px;
 	align-self: flex-start;
 `;

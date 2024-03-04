@@ -2,7 +2,6 @@ import styled from 'styled-components/native';
 import { Colors } from '../../utils/Colors';
 
 export const InputBox = styled.View`
-	margin-top: 20px;
 	width: 100%;
 `;
 

@@ -10,6 +10,7 @@ import { AppointmentCard, Appointments } from '../../components/Card';
 import { CardList } from '../../components/Card/style';
 import {
 	CancelModal,
+	ConfirmScheduleModal,
 	MedicalRecordModal,
 	ScheduleAppointment,
 	ScheduleAppointmentModal,
@@ -58,6 +59,62 @@ export const Home = () => {
 			appointmentTime: '15:00',
 			appointmentStatus: 'cancelled',
 		},
+		{
+			consultationId: 5,
+			patientName: 'BUGIGANGA',
+			patientAge: '13',
+			appointmentPriority: 'Urgência',
+			appointmentTime: '15:00',
+			appointmentStatus: 'cancelled',
+		},
+		{
+			consultationId: 5,
+			patientName: 'BUGIGANGA',
+			patientAge: '13',
+			appointmentPriority: 'Urgência',
+			appointmentTime: '15:00',
+			appointmentStatus: 'cancelled',
+		},
+		{
+			consultationId: 5,
+			patientName: 'BUGIGANGA',
+			patientAge: '13',
+			appointmentPriority: 'Urgência',
+			appointmentTime: '15:00',
+			appointmentStatus: 'cancelled',
+		},
+		{
+			consultationId: 5,
+			patientName: 'BUGIGANGA',
+			patientAge: '13',
+			appointmentPriority: 'Urgência',
+			appointmentTime: '15:00',
+			appointmentStatus: 'cancelled',
+		},
+		{
+			consultationId: 5,
+			patientName: 'BUGIGANGA',
+			patientAge: '13',
+			appointmentPriority: 'Urgência',
+			appointmentTime: '15:00',
+			appointmentStatus: 'cancelled',
+		},
+		{
+			consultationId: 5,
+			patientName: 'BUGIGANGA',
+			patientAge: '13',
+			appointmentPriority: 'Urgência',
+			appointmentTime: '15:00',
+			appointmentStatus: 'cancelled',
+		},
+		{
+			consultationId: 5,
+			patientName: 'BUGIGANGA',
+			patientAge: '13',
+			appointmentPriority: 'Urgência',
+			appointmentTime: '15:00',
+			appointmentStatus: 'cancelled',
+		},
 	]);
 
 	const [listView, setListView] = useState('scheduled');
@@ -65,7 +122,8 @@ export const Home = () => {
 	const [cancelModalVisible, setCancelModalVisible] = useState(false);
 	const [medicalRecordModalVisible, setMedicalRecordModalVisible] =
 		useState(false);
-	const [NewRecordModalVisible, setNewRecordModalVisible] = useState(true);
+	const [NewRecordModalVisible, setNewRecordModalVisible] = useState(false);
+	const [confirmModalVisible, setConfirmModalVisible] = useState(true);
 	return (
 		<>
 			<CancelModal
@@ -87,7 +145,16 @@ export const Home = () => {
 				}}
 			/>
 
-			<ScheduleAppointmentModal isVisible={setNewRecordModalVisible} />
+			<ScheduleAppointmentModal
+				isVisible={NewRecordModalVisible}
+				hideModalFn={() => setNewRecordModalVisible(false)}
+			/>
+
+			<ConfirmScheduleModal
+				isVisible={confirmModalVisible}
+				hideModalFn={() => setConfirmModalVisible(false)}
+			/>
+
 			<ContainerBox>
 				<StatusBar />
 
@@ -120,7 +187,7 @@ export const Home = () => {
 				<Container>
 					<NewScheduleButton
 						NewScheduleFn={() => {
-							setNewRecordModalVisible();
+							setNewRecordModalVisible(true);
 						}}
 					/>
 					<CardList

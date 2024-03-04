@@ -23,9 +23,9 @@ export const CloseButton = ({ CloseFn }) => {
 	);
 };
 
-export const NewScheduleButton = ({ NewScheduleFn }) => {
+export const NewScheduleButton = ({ NewScheduleFn = null }) => {
 	return (
-		<RoundedSquare>
+		<RoundedSquare onPress={NewScheduleFn}>
 			<MaterialCommunityIcons
 				name="stethoscope"
 				size={24}

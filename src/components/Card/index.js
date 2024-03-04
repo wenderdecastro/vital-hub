@@ -38,10 +38,13 @@ export const AppointmentCard = ({
 					/>
 					<Box>
 						<CardTextBox>
-							<AltText fontSize={18}>{patientName}</AltText>
+							<AltText fontSize={20}>{patientName}</AltText>
 							<Spacing size={5} />
 							<RowBox>
-								<ThinText style={{ alignSelf: 'flex-start' }}>
+								<ThinText
+									fontSize={18}
+									style={{ alignSelf: 'flex-start' }}
+								>
 									{patientAge} anos
 								</ThinText>
 								<Entypo
@@ -50,7 +53,11 @@ export const AppointmentCard = ({
 									color={Colors.gray_v6}
 									style={{ marginTop: -10 }}
 								/>
-								<Label fontSize={16} textColor={Colors.gray_v4}>
+								<Label
+									style={{ marginTop: 0 }}
+									fontSize={18}
+									textColor={Colors.gray_v4}
+								>
 									{appointmentPriority}
 								</Label>
 							</RowBox>
@@ -79,7 +86,7 @@ export const AppointmentCard = ({
 											? Colors.primary
 											: Colors.gray_v1
 									}
-									fontSize={16}
+									fontSize={18}
 								>
 									{appointmentTime}
 								</Label>
@@ -92,7 +99,7 @@ export const AppointmentCard = ({
 									linkColor={Colors.red}
 									style={{ alignSelf: 'center' }}
 									onPress={cancelFn}
-									fontSize={14}
+									fontSize={18}
 								>
 									Cancelar
 								</AltLink>

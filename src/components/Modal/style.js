@@ -4,7 +4,7 @@ export const ModalContainer = styled.View`
 	display: ${(props) => (props.visible ? 'flex' : 'none')};
 	background-color: #fff;
 	width: 90%;
-	height: 60%;
+	height: ${(props) => (props.modalHeight ? props.modalHeight : 60)}%;
 	z-index: 10;
 	border-radius: 15px;
 	padding: 40px 30px;
@@ -13,8 +13,9 @@ export const ModalContainer = styled.View`
 `;
 export const BottomModalContainer = styled(ModalContainer)`
 	width: 100%;
-	height: 80%;
-	align-items: normal;
+	height: 82%;
+
+	justify-content: flex-start;
 `;
 
 export const ModalBackground = styled.View`
@@ -30,6 +31,7 @@ export const ModalBackground = styled.View`
 
 export const AltModalBackground = styled(ModalBackground)`
 	align-items: flex-end;
+	justify-content: flex-end;
 `;
 
 export const ModalImage = styled.Image`

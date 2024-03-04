@@ -74,9 +74,10 @@ export const FilterButtonSwitchText = styled.Text`
 `;
 
 export const SwitchContainer = styled.View`
-	width: 88%;
+	width: ${(props) => (props.rowWidth ? props.rowWidth : 88)}%;
 	flex-direction: row;
 	justify-content: space-between;
+	padding-top: 5px;
 `;
 
 export const ConsultationButtonBox = styled.TouchableOpacity`
