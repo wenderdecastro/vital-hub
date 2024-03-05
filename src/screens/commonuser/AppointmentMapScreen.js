@@ -14,7 +14,7 @@ export const AppointmentMapScreen = () => {
 
 	return (
 		<Container>
-			<View style={{ flex: 3 }}>
+			<View style={{ flex: 1, paddingTop: 50 }}>
 				<MapView region={region} style={{ flex: 1 }}>
 					<Marker
 						coordinate={{
