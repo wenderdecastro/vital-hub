@@ -116,7 +116,7 @@ export const ConfirmScheduleModal = ({
 	appointmentType,
 }) => {
 	return (
-		<Modal modalHeight={75} isVisible={isVisible}>
+		<Modal modalHeight={80} isVisible={isVisible}>
 			<Title>Agendar Consulta</Title>
 			<RawText>
 				Consulte os dados selecionados para a sua consulta

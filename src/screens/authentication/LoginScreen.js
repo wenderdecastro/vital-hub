@@ -7,7 +7,10 @@ import { Spacing } from '../../utils/Components';
 import { AltLink } from '../../components/Link/style';
 import { TextLink } from '../../components/Text';
 
-export const LoginScreen = () => {
+export const LoginScreen = ({ navigation }) => {
+	async function Login(email, senha) {
+		navigation.navigate('Main');
+	}
 	return (
 		<Container>
 			<Logo source={require('../../assets/VitalHub_Logo1.png')} />
@@ -28,7 +31,7 @@ export const LoginScreen = () => {
 				Esqueceu a senha?
 			</AltLink>
 
-			<Button title={'Entrar'} />
+			<Button title={'Entrar'} buttonFn={() => Login('a', 'a')} />
 
 			<GoogleButton />
 

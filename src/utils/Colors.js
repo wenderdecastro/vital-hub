@@ -8,6 +8,7 @@ export const Colors = {
 	secondary_v1: '#344F8F',
 	secondary_v2: '#607EC5',
 	secondary_v3: '#7791CF',
+	secondary_v4: '#ECF2FF',
 	gray: '#33303E',
 	gray_v1: '#4E4B59',
 	gray_v2: '#33303E',

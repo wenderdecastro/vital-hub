@@ -123,7 +123,7 @@ export const Home = () => {
 	const [medicalRecordModalVisible, setMedicalRecordModalVisible] =
 		useState(false);
 	const [NewRecordModalVisible, setNewRecordModalVisible] = useState(false);
-	const [confirmModalVisible, setConfirmModalVisible] = useState(true);
+	const [confirmModalVisible, setConfirmModalVisible] = useState(false);
 	return (
 		<>
 			<CancelModal

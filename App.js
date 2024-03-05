@@ -27,6 +27,7 @@ import { PrescriptionScreen } from './src/screens/commonuser/PrescriptionScreen'
 import { SelectClinicScreen } from './src/screens/commonuser/SelectClinicScreen';
 import { SelectDateScreen } from './src/screens/commonuser/SelectDateScreen';
 import { AppointmentMapScreen } from './src/screens/commonuser/AppointmentMapScreen';
+import { Main } from './src/screens/main/main';
 
 const Stack = createNativeStackNavigator();
 
@@ -46,9 +47,26 @@ export default function App() {
 
 	return (
 		//involves the structure of navigation
-		<NavigationContainer>
+
+		<NavigationContainer initialRouteName="Home">
 			{/* Navigation component */}
-			<Stack.Navigator>
+
+			<Stack.Navigator screenOptions={{ headerShown: false }}>
+				<Stack.Screen
+					name="Login"
+					component={LoginScreen}
+					options={{ title: 'Login', headerShown: false }}
+				/>
+				<Stack.Screen
+					//screen name
+					name="Main"
+					//component that will be called
+					component={Main}
+					//screen title
+					options={{
+						title: 'Main',
+					}}
+				/>
 				<Stack.Screen
 					//screen name
 					name="Navigation"
@@ -57,73 +75,69 @@ export default function App() {
 					//screen title
 					options={{ title: 'Navigation' }}
 				/>
-				<Stack.Screen
-					name="Login"
-					component={LoginScreen}
-					options={{ title: 'Login', headerShown: false }}
-				/>
+
 				<Stack.Screen
 					name="ForgotPassword"
 					component={ForgotPasswordScreen}
-					options={{ title: 'ForgotPassword', headerShown: false }}
+					options={{ title: 'ForgotPassword' }}
 				/>
 				<Stack.Screen
 					name="ResetPassword"
 					component={ResetPasswordScreen}
-					options={{ title: 'ResetPassword', headerShown: false }}
+					options={{ title: 'ResetPassword' }}
 				/>
 				<Stack.Screen
 					name="Register"
 					component={RegisterScreen}
-					options={{ title: 'Register', headerShown: false }}
+					options={{ title: 'Register' }}
 				/>
 
 				<Stack.Screen
 					name="EmailConfirmation"
 					component={EmailConfirmationScreen}
-					options={{ title: 'EmailConfirmation', headerShown: false }}
+					options={{ title: 'EmailConfirmation' }}
 				/>
 
 				<Stack.Screen
 					name="Profile"
 					component={ProfileScreen}
-					options={{ title: 'Profile', headerShown: false }}
+					options={{ title: 'Profile' }}
 				/>
 
 				<Stack.Screen
 					name="Home"
 					component={Home}
-					options={{ title: 'Home', headerShown: false }}
+					options={{ title: 'Home' }}
 				/>
 				<Stack.Screen
 					name="MedicalRecord"
 					component={MedicalRecordScreen}
-					options={{ title: 'MedicalRecord', headerShown: false }}
+					options={{ title: 'MedicalRecord' }}
 				/>
 				<Stack.Screen
 					name="Prescription"
 					component={PrescriptionScreen}
-					options={{ title: 'Prescription', headerShown: false }}
+					options={{ title: 'Prescription' }}
 				/>
 				<Stack.Screen
 					name="SelectClinic"
 					component={SelectClinicScreen}
-					options={{ title: 'SelectClinic', headerShown: false }}
+					options={{ title: 'SelectClinic' }}
 				/>
 				<Stack.Screen
 					name="SelectMedic"
 					component={SelectMedicScreen}
-					options={{ title: 'SelectMedic', headerShown: false }}
+					options={{ title: 'SelectMedic' }}
 				/>
 				<Stack.Screen
 					name="SelectDate"
 					component={SelectDateScreen}
-					options={{ title: 'SelectDate', headerShown: false }}
+					options={{ title: 'SelectDate' }}
 				/>
 				<Stack.Screen
 					name="AppointmentMap"
 					component={AppointmentMapScreen}
-					options={{ title: 'AppointmentMap', headerShown: false }}
+					options={{ title: 'AppointmentMap' }}
 				/>
 			</Stack.Navigator>
 		</NavigationContainer>
