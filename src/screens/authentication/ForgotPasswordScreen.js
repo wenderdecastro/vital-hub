@@ -7,10 +7,10 @@ import { RawText } from '../../components/Text/style';
 import { Title } from '../../components/Title/style';
 import { Spacing } from '../../utils/Components';
 
-export const ForgotPasswordScreen = () => {
+export const ForgotPasswordScreen = ({ navigation }) => {
 	return (
 		<Container>
-			<BackButton />
+			<BackButton BackFn={() => navigation.goBack()} />
 
 			<Logo source={require('../../assets/VitalHub_Logo1.png')} />
 
@@ -25,7 +25,10 @@ export const ForgotPasswordScreen = () => {
 
 			<Input placeholder="Usuário ou E-mail" />
 
-			<Button title={'Continuar'} />
+			<Button
+				buttonFn={() => navigation.navigate('EmailConfirmation')}
+				title={'Continuar'}
+			/>
 		</Container>
 	);
 };

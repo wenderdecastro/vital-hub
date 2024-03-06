@@ -17,7 +17,7 @@ import {
 } from '../../components/Modal';
 import { NewScheduleButton } from '../../components/FixedButtons';
 
-export const Home = () => {
+export const Home = (navigation) => {
 	const [AppointmentList, setAppointmentList] = useState([
 		{
 			consultationId: 1,
@@ -133,6 +133,7 @@ export const Home = () => {
 				}}
 			/>
 			<MedicalRecordModal
+				buttonFn={() => navigation.navigate('MedicalRecord')}
 				patientAge={22}
 				patientName={'Tasmania Souza'}
 				patientEmail={'ribossomos@gmail'}

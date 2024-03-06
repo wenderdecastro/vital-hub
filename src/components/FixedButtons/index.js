@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 export const BackButton = ({ BackFn }) => {
 	return (
-		<Circle>
+		<Circle onPress={BackFn}>
 			<Ionicons
 				name="arrow-back-sharp"
 				size={24}
@@ -17,7 +17,7 @@ export const BackButton = ({ BackFn }) => {
 
 export const CloseButton = ({ CloseFn }) => {
 	return (
-		<Circle>
+		<Circle onPress={CloseFn}>
 			<Ionicons name="close-sharp" size={24} color={Colors.primary_v1} />
 		</Circle>
 	);

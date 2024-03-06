@@ -10,7 +10,7 @@ export const ContentIcon = styled.View`
 	align-items: center;
 	gap: 5px;
 
-	background-color: ${Colors.secondary_v4};
+	/* background-color: ${Colors.secondary_v4}; */
 `;
 
 export const TextIcon = styled.Text`

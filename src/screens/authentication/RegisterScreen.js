@@ -11,7 +11,7 @@ import { Link } from '../../components/Link/style';
 export const RegisterScreen = () => {
 	return (
 		<Container>
-			<BackButton />
+			<BackButton BackFn={() => navigation.goBack()} />
 
 			<Logo source={require('../../assets/VitalHub_Logo1.png')} />
 

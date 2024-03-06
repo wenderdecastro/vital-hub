@@ -9,7 +9,7 @@ import { TextLink } from '../../components/Text';
 
 export const LoginScreen = ({ navigation }) => {
 	async function Login(email, senha) {
-		navigation.navigate('Main');
+		navigation.replace('Main');
 	}
 	return (
 		<Container>
@@ -25,9 +25,7 @@ export const LoginScreen = ({ navigation }) => {
 
 			<Spacing size={10} />
 
-			<AltLink
-			// onPress={() => navigation.navigate('ForgotPassword')}
-			>
+			<AltLink onPress={() => navigation.navigate('ForgotPassword')}>
 				Esqueceu a senha?
 			</AltLink>
 

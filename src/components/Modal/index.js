@@ -47,6 +47,7 @@ export const MedicalRecordModal = ({
 	patientAge,
 	patientEmail,
 	patientName,
+	buttonFn,
 }) => {
 	return (
 		<Modal isVisible={isVisible}>
@@ -56,14 +57,18 @@ export const MedicalRecordModal = ({
 				{patientAge} anos {patientEmail}
 			</RawText>
 
-			<Button title={'Inserir prontuário'} />
+			<Button title={'Inserir prontuário'} buttonFn={buttonFn} />
 
 			<Link onPress={hideModalFn}>Cancelar</Link>
 		</Modal>
 	);
 };
 
-export const ScheduleAppointmentModal = ({ isVisible, hideModalFn }) => {
+export const ScheduleAppointmentModal = ({
+	isVisible,
+	hideModalFn,
+	buttonFn,
+}) => {
 	return (
 		<AltModalBackground visible={isVisible}>
 			<BottomModalContainer visible={isVisible}>
@@ -98,7 +103,7 @@ export const ScheduleAppointmentModal = ({ isVisible, hideModalFn }) => {
 						width: '100%',
 					}}
 				>
-					<Button title="Continuar" />
+					<Button title="Continuar" buttonFn={buttonFn} />
 					<Link onPress={hideModalFn}>Cancelar</Link>
 				</View>
 			</BottomModalContainer>
@@ -118,18 +123,24 @@ export const ConfirmScheduleModal = ({
 	return (
 		<Modal modalHeight={80} isVisible={isVisible}>
 			<Title>Agendar Consulta</Title>
+
 			<RawText>
 				Consulte os dados selecionados para a sua consulta
 			</RawText>
+
 			<Label>Data da consulta</Label>
 			<AlignedText>{appointmentDate}</AlignedText>
+
 			<Label>Médico(a) da consulta</Label>
 			<AlignedText>{doctorName}</AlignedText>
 			<AlignedText>{doctorSpeciality}</AlignedText>
+
 			<Label>Local da consulta</Label>
 			<AlignedText>{appointmentLocal}</AlignedText>
+
 			<Label>Tipo da consulta</Label>
 			<AlignedText>{appointmentType}</AlignedText>
+
 			<Button title={'Confirmar'} />
 
 			<Link onPress={hideModalFn}>Cancelar</Link>

@@ -3,6 +3,7 @@ import { Home } from '../commonuser/Home';
 import { ProfileScreen } from '../commonuser/ProfileScreen';
 import { Colors } from '../../utils/Colors';
 import { FontAwesome, FontAwesome5 } from '@expo/vector-icons';
+import { ContentIcon, TextIcon } from './style';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -14,7 +15,7 @@ export const Main = () => {
 				tabBarStyle: {
 					backgroundColor: '#fff',
 					height: 60,
-					paddingTop: 10,
+					paddingBottom: 0,
 				},
 				tabBarActiveBackgroundColor: 'transparent',
 				tabBarShowLabel: false,
@@ -23,8 +24,37 @@ export const Main = () => {
 				tabBarActiveTintColor: Colors.secondary_v2,
 				tabBarIcon: ({ focused }) => {
 					if (route.name === 'Home') {
-						return <></>;
+						return (
+							<ContentIcon
+								tabBarActiveBackgroundColor={
+									focused ? '#ECF2FF' : 'transparent'
+								}
+							>
+								<FontAwesome
+									name="calendar"
+									size={18}
+									color={'#4E4B59'}
+								/>
+
+								{focused && <TextIcon>Agenda</TextIcon>}
+							</ContentIcon>
+						);
 					} else {
+						return (
+							<ContentIcon
+								tabBarActiveBackgroundColor={
+									focused ? '#ECF2FF' : 'transparent'
+								}
+							>
+								<FontAwesome5
+									name="user-circle"
+									size={18}
+									color={'#4E4B59'}
+								/>
+
+								{focused && <TextIcon>Perfil</TextIcon>}
+							</ContentIcon>
+						);
 					}
 				},
 			})}

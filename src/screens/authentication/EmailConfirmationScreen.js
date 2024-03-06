@@ -8,10 +8,10 @@ import { Title } from '../../components/Title/style';
 import { Colors } from '../../utils/Colors';
 import { Spacing } from '../../utils/Components';
 
-export const EmailConfirmationScreen = () => {
+export const EmailConfirmationScreen = ({ navigation }) => {
 	return (
 		<Container>
-			<CloseButton />
+			<CloseButton CloseFn={() => navigation.goBack()} />
 
 			<Logo source={require('../../assets/VitalHub_Logo1.png')} />
 
@@ -24,7 +24,10 @@ export const EmailConfirmationScreen = () => {
 				username@email.com
 			</AltText>
 
-			<Button title={'Verificar'} />
+			<Button
+				buttonFn={() => navigation.navigate('ResetPassword')}
+				title={'Verificar'}
+			/>
 		</Container>
 	);
 };

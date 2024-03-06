@@ -10,7 +10,7 @@ import { Spacing } from '../../utils/Components';
 export const ResetPasswordScreen = () => {
 	return (
 		<Container>
-			<CloseButton />
+			<CloseButton CloseFn={() => navigation.goBack()} />
 
 			<Logo source={require('../../assets/VitalHub_Logo1.png')} />
 
