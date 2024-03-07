@@ -7,8 +7,9 @@ import { Title } from '../../components/Title/style';
 import { Label } from '../../components/Text/style';
 import { LabelledInput } from '../../components/Input';
 import { getLocation } from '../../services/apiservice';
+import { Link } from '../../components/Link/style';
 
-export const AppointmentMapScreen = () => {
+export const AppointmentMapScreen = ({ navigation }) => {
 	useEffect(() => {
 		const data = getLocation(region.latitude, region.longitude);
 		console.log(data);
@@ -51,6 +52,13 @@ export const AppointmentMapScreen = () => {
 					labeltext="Endereço"
 					placeholder="Rua tal de tal de tal, 333"
 				/>
+				<Link
+					onPress={() => {
+						navigation.replace('Main');
+					}}
+				>
+					Voltar
+				</Link>
 			</Container>
 		</>
 	);

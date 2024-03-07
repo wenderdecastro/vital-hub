@@ -16,12 +16,15 @@ import { TouchableHighlight, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import { Spacing } from '../../utils/Components';
+import { useState } from 'react';
 
 export const AppointmentCard = ({
 	patientAge,
 	appointmentPriority,
 	patientName,
 	appointmentTime,
+	profile,
+	navigation,
 	appointmentStatus,
 	cancelFn,
 	viewMedicalRecordsFn,
@@ -29,7 +32,9 @@ export const AppointmentCard = ({
 }) => {
 	return (
 		<Card>
-			<TouchableOpacity onPress={cardClickFn}>
+			<TouchableOpacity
+				onPress={appointmentStatus === 'scheduled' ? cardClickFn : null}
+			>
 				<CardContent>
 					<ProfileImage
 						source={{
@@ -111,7 +116,9 @@ export const AppointmentCard = ({
 									onPress={viewMedicalRecordsFn}
 									fontSize={14}
 								>
-									Ver Prontuário
+									{profile == 'Patient'
+										? 'Ver local da consulta'
+										: 'Ver Prontuário'}
 								</AltLink>
 							)}
 						</CardContentBox>

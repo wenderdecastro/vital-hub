@@ -11,8 +11,8 @@ export const HeaderContainer = styled(LinearGradient).attrs({
 })`
 	width: 100%;
 	padding: 20px;
-	padding-bottom: 22px;
-	height: 18%;
+	padding-top: 60px;
+	height: 20%;
 
 	flex-direction: row;
 	align-items: center;

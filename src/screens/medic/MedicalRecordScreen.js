@@ -17,7 +17,7 @@ import { useState } from 'react';
 import { Input, LargeInput } from '../../components/Input/style';
 import { Link } from '../../components/Link/style';
 
-export const MedicalRecordScreen = () => {
+export const MedicalRecordScreen = ({ navigation }) => {
 	const [isReadOnly, setIsReadOnly] = useState(true);
 	return (
 		<ScrollView>
@@ -63,7 +63,7 @@ export const MedicalRecordScreen = () => {
 						<></>
 					)}
 
-					<Link>Cancelar</Link>
+					<Link onPress={() => navigation.goBack()}>Cancelar</Link>
 					<Spacing size={50} />
 				</InputView>
 			</ContainerBox>

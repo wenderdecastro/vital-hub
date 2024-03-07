@@ -8,7 +8,7 @@ import { Title } from '../../components/Title/style';
 import { Spacing } from '../../utils/Components';
 import { Link } from '../../components/Link/style';
 
-export const RegisterScreen = () => {
+export const RegisterScreen = ({ navigation }) => {
 	return (
 		<Container>
 			<BackButton BackFn={() => navigation.goBack()} />
@@ -32,7 +32,7 @@ export const RegisterScreen = () => {
 
 			<Button title={'Cadastrar'} />
 
-			<Link>Cancelar</Link>
+			<Link onPress={() => navigation.goBack()}>Cancelar</Link>
 		</Container>
 	);
 };

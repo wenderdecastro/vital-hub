@@ -33,7 +33,11 @@ export const LoginScreen = ({ navigation }) => {
 
 			<GoogleButton />
 
-			<TextLink text="Não tem conta? " link="Crie uma conta agora!" />
+			<TextLink
+				handleFn={() => navigation.navigate('Register')}
+				text="Não tem conta? "
+				link="Crie uma conta agora!"
+			/>
 		</Container>
 	);
 };

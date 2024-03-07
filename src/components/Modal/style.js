@@ -13,8 +13,8 @@ export const ModalContainer = styled.View`
 `;
 export const BottomModalContainer = styled(ModalContainer)`
 	width: 100%;
-	height: 82%;
-
+	height: 72%;
+	border-radius: 15px 15px 0px 0px;
 	justify-content: flex-start;
 `;
 

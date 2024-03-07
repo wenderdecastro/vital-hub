@@ -17,7 +17,7 @@ import {
 } from '../../components/Modal';
 import { NewScheduleButton } from '../../components/FixedButtons';
 
-export const Home = (navigation) => {
+export const Home = ({ navigation }) => {
 	const [AppointmentList, setAppointmentList] = useState([
 		{
 			consultationId: 1,
@@ -116,7 +116,7 @@ export const Home = (navigation) => {
 			appointmentStatus: 'cancelled',
 		},
 	]);
-
+	const [profile, setProfile] = useState('Patient');
 	const [listView, setListView] = useState('scheduled');
 
 	const [cancelModalVisible, setCancelModalVisible] = useState(false);
@@ -160,7 +160,7 @@ export const Home = (navigation) => {
 				<StatusBar />
 
 				{/* Header */}
-				<Header />
+				<Header profileClick={() => navigation.navigate('Profile')} />
 
 				{/* Calendar */}
 
@@ -197,6 +197,7 @@ export const Home = (navigation) => {
 						renderItem={({ item }) =>
 							listView == item.appointmentStatus && (
 								<AppointmentCard
+									profile={profile}
 									patientName={item.patientName}
 									patientAge={item.patientAge}
 									appointmentTime={item.appointmentTime}
@@ -207,6 +208,20 @@ export const Home = (navigation) => {
 									cancelFn={() => {
 										setCancelModalVisible(true);
 									}}
+									viewMedicalRecordsFn={
+										profile === 'Paciente'
+											? () => {
+													navigation.navigate(
+														'MedicalRecord',
+													);
+											  }
+											: () => {
+													setMedicalRecordModalVisible(
+														true,
+													);
+											  }
+									}
+									navigation={navigation}
 									cardClickFn={() => {
 										setMedicalRecordModalVisible(true);
 									}}

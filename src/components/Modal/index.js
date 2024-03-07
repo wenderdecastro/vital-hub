@@ -41,6 +41,7 @@ export const CancelModal = ({ isVisible, hideModalFn }) => {
 };
 
 export const MedicalRecordModal = ({
+	navigation,
 	isVisible,
 	hideModalFn,
 	imgSource,
@@ -48,7 +49,12 @@ export const MedicalRecordModal = ({
 	patientEmail,
 	patientName,
 	buttonFn,
+	appointmentStatus,
 }) => {
+	async function handleClose(screen) {
+		await setMedicalRecordModalVisible(false);
+		navigation.replace(screen);
+	}
 	return (
 		<Modal isVisible={isVisible}>
 			<ModalImage source={imgSource} />
@@ -56,8 +62,17 @@ export const MedicalRecordModal = ({
 			<RawText fontSize={16}>
 				{patientAge} anos {patientEmail}
 			</RawText>
-
-			<Button title={'Inserir prontuário'} buttonFn={buttonFn} />
+			{appointmentStatus !== 'Pendente' ? (
+				<Button
+					title="Ver local da consulta"
+					buttonFn={() => handleClose('AppointmentMap')}
+				/>
+			) : (
+				<Button
+					title="Inserir prontuário"
+					buttonFn={() => handleClose('MedicalRecords')}
+				/>
+			)}
 
 			<Link onPress={hideModalFn}>Cancelar</Link>
 		</Modal>
@@ -99,7 +114,7 @@ export const ScheduleAppointmentModal = ({
 					style={{
 						alignContent: 'flex-end',
 						justifyContent: 'flex-end',
-						height: '60%',
+						height: '40%',
 						width: '100%',
 					}}
 				>
