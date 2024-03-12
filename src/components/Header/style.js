@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
 import { LinearGradient } from 'expo-linear-gradient';
 import { Colors } from '../../utils/Colors';
@@ -26,7 +26,7 @@ export const WelcomeText = styled(RawText)`
 	margin: 0;
 `;
 
-export const UserBox = styled.View`
+export const UserBox = styled.TouchableOpacity`
 	gap: 10px;
 	flex-direction: row;
 	align-items: center;

@@ -17,7 +17,10 @@ import {
 export const Modal = ({ isVisible, children, modalHeight }) => {
 	return (
 		<ModalBackground visible={isVisible}>
-			<ModalContainer modalHeight={modalHeight} visible={isVisible}>
+			<ModalContainer
+				modalHeight={modalHeight}
+				visible={isVisible}
+			>
 				{children}
 			</ModalContainer>
 		</ModalBackground>
@@ -27,10 +30,13 @@ export const Modal = ({ isVisible, children, modalHeight }) => {
 export const CancelModal = ({ isVisible, hideModalFn }) => {
 	return (
 		<Modal isVisible={isVisible}>
-			<Title style={{ marginTop: '0' }}>Cancelar consulta</Title>
+			<Title style={{ marginTop: '0' }}>
+				Cancelar consulta
+			</Title>
 			<RawText>
-				Ao cancelar essa consulta, abrirá uma possível disponibilidade
-				no seu horário, deseja mesmo cancelar essa consulta?
+				Ao cancelar essa consulta, abrirá uma possível
+				disponibilidade no seu horário, deseja mesmo
+				cancelar essa consulta?
 			</RawText>
 
 			<Button title={'Confirmar'} />
@@ -41,20 +47,16 @@ export const CancelModal = ({ isVisible, hideModalFn }) => {
 };
 
 export const MedicalRecordModal = ({
-	navigation,
 	isVisible,
 	hideModalFn,
 	imgSource,
 	patientAge,
 	patientEmail,
 	patientName,
-	buttonFn,
-	appointmentStatus,
+	profile,
+	navigateRecords,
+	navigateMap,
 }) => {
-	async function handleClose(screen) {
-		await setMedicalRecordModalVisible(false);
-		navigation.replace(screen);
-	}
 	return (
 		<Modal isVisible={isVisible}>
 			<ModalImage source={imgSource} />
@@ -62,15 +64,15 @@ export const MedicalRecordModal = ({
 			<RawText fontSize={16}>
 				{patientAge} anos {patientEmail}
 			</RawText>
-			{appointmentStatus !== 'Pendente' ? (
+			{profile === 'Paciente' ? (
 				<Button
 					title="Ver local da consulta"
-					buttonFn={() => handleClose('AppointmentMap')}
+					buttonFn={navigateMap}
 				/>
 			) : (
 				<Button
 					title="Inserir prontuário"
-					buttonFn={() => handleClose('MedicalRecords')}
+					buttonFn={navigateRecords}
 				/>
 			)}
 
@@ -89,7 +91,9 @@ export const ScheduleAppointmentModal = ({
 			<BottomModalContainer visible={isVisible}>
 				<Title>Agendar consulta</Title>
 				<Spacing size={35} />
-				<Label fontSize={16}>Qual o nível da consulta?</Label>
+				<Label fontSize={16}>
+					Qual o nível da consulta?
+				</Label>
 				<SwitchContainer rowWidth={100}>
 					<ConsultationButtonSwitch
 						textButton={'Rotina'}
@@ -108,7 +112,9 @@ export const ScheduleAppointmentModal = ({
 					/>
 				</SwitchContainer>
 				<Spacing size={15} />
-				<Label fontSize={16}>Informe a localização desejada</Label>
+				<Label fontSize={16}>
+					Informe a localização desejada
+				</Label>
 				<Input placeholder="Informe a localização" />
 				<View
 					style={{
@@ -118,8 +124,13 @@ export const ScheduleAppointmentModal = ({
 						width: '100%',
 					}}
 				>
-					<Button title="Continuar" buttonFn={buttonFn} />
-					<Link onPress={hideModalFn}>Cancelar</Link>
+					<Button
+						title="Continuar"
+						buttonFn={buttonFn}
+					/>
+					<Link onPress={hideModalFn}>
+						Cancelar
+					</Link>
 				</View>
 			</BottomModalContainer>
 		</AltModalBackground>
@@ -140,7 +151,8 @@ export const ConfirmScheduleModal = ({
 			<Title>Agendar Consulta</Title>
 
 			<RawText>
-				Consulte os dados selecionados para a sua consulta
+				Consulte os dados selecionados para a sua
+				consulta
 			</RawText>
 
 			<Label>Data da consulta</Label>

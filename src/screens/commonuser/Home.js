@@ -116,14 +116,20 @@ export const Home = ({ navigation }) => {
 			appointmentStatus: 'cancelled',
 		},
 	]);
-	const [profile, setProfile] = useState('Patient');
+	const [profile, setProfile] = useState('Patientsdfg');
 	const [listView, setListView] = useState('scheduled');
 
 	const [cancelModalVisible, setCancelModalVisible] = useState(false);
 	const [medicalRecordModalVisible, setMedicalRecordModalVisible] =
 		useState(false);
-	const [NewRecordModalVisible, setNewRecordModalVisible] = useState(false);
+	const [NewRecordModalVisible, setNewRecordModalVisible] =
+		useState(false);
 	const [confirmModalVisible, setConfirmModalVisible] = useState(false);
+	async function handleClose(screen) {
+		await setMedicalRecordModalVisible(false);
+		navigation.replace(screen);
+	}
+
 	return (
 		<>
 			<CancelModal
@@ -133,7 +139,13 @@ export const Home = ({ navigation }) => {
 				}}
 			/>
 			<MedicalRecordModal
-				buttonFn={() => navigation.navigate('MedicalRecord')}
+				profile={profile}
+				navigateMap={() =>
+					handleClose('AppointmentMap')
+				}
+				navigateRecords={() =>
+					handleClose('MedicalRecord')
+				}
 				patientAge={22}
 				patientName={'Tasmania Souza'}
 				patientEmail={'ribossomos@gmail'}
@@ -148,19 +160,27 @@ export const Home = ({ navigation }) => {
 
 			<ScheduleAppointmentModal
 				isVisible={NewRecordModalVisible}
-				hideModalFn={() => setNewRecordModalVisible(false)}
+				hideModalFn={() =>
+					setNewRecordModalVisible(false)
+				}
 			/>
 
 			<ConfirmScheduleModal
 				isVisible={confirmModalVisible}
-				hideModalFn={() => setConfirmModalVisible(false)}
+				hideModalFn={() =>
+					setConfirmModalVisible(false)
+				}
 			/>
 
 			<ContainerBox>
 				<StatusBar />
 
 				{/* Header */}
-				<Header profileClick={() => navigation.navigate('Profile')} />
+				<Header
+					profileClick={() =>
+						navigation.navigate('Profile')
+					}
+				/>
 
 				{/* Calendar */}
 
@@ -170,46 +190,77 @@ export const Home = ({ navigation }) => {
 				<SwitchContainer>
 					<FilterButtonSwitch
 						textButton={'Agendadas'}
-						clickButton={listView === 'scheduled'}
-						onPress={() => setListView('scheduled')}
+						clickButton={
+							listView === 'scheduled'
+						}
+						onPress={() =>
+							setListView('scheduled')
+						}
 					/>
 					<FilterButtonSwitch
 						textButton={'Realizadas'}
-						clickButton={listView === 'terminated'}
-						onPress={() => setListView('terminated')}
+						clickButton={
+							listView ===
+							'terminated'
+						}
+						onPress={() =>
+							setListView(
+								'terminated',
+							)
+						}
 					/>
 					<FilterButtonSwitch
 						textButton={'Canceladas'}
-						clickButton={listView === 'cancelled'}
-						onPress={() => setListView('cancelled')}
+						clickButton={
+							listView === 'cancelled'
+						}
+						onPress={() =>
+							setListView('cancelled')
+						}
 					/>
 				</SwitchContainer>
 
 				<Container>
 					<NewScheduleButton
 						NewScheduleFn={() => {
-							setNewRecordModalVisible(true);
+							setNewRecordModalVisible(
+								true,
+							);
 						}}
 					/>
 					<CardList
 						data={AppointmentList}
 						key={(item) => item.id}
 						renderItem={({ item }) =>
-							listView == item.appointmentStatus && (
+							listView ==
+								item.appointmentStatus && (
 								<AppointmentCard
-									profile={profile}
-									patientName={item.patientName}
-									patientAge={item.patientAge}
-									appointmentTime={item.appointmentTime}
+									profile={
+										profile
+									}
+									patientName={
+										item.patientName
+									}
+									patientAge={
+										item.patientAge
+									}
+									appointmentTime={
+										item.appointmentTime
+									}
 									appointmentPriority={
 										item.appointmentPriority
 									}
-									appointmentStatus={item.appointmentStatus}
+									appointmentStatus={
+										item.appointmentStatus
+									}
 									cancelFn={() => {
-										setCancelModalVisible(true);
+										setCancelModalVisible(
+											true,
+										);
 									}}
 									viewMedicalRecordsFn={
-										profile === 'Paciente'
+										profile ===
+										'Paciente'
 											? () => {
 													navigation.navigate(
 														'MedicalRecord',
@@ -221,9 +272,13 @@ export const Home = ({ navigation }) => {
 													);
 											  }
 									}
-									navigation={navigation}
+									navigation={
+										navigation
+									}
 									cardClickFn={() => {
-										setMedicalRecordModalVisible(true);
+										setMedicalRecordModalVisible(
+											true,
+										);
 									}}
 								/>
 							)
