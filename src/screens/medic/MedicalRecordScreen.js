@@ -36,19 +36,25 @@ export const MedicalRecordScreen = ({ navigation }) => {
 					<LargeLabelledInput
 						inputHeight={150}
 						isReadOnly={isReadOnly}
-						labeltext={'Descrição da consulta:'}
+						labeltext={
+							'Descrição da consulta:'
+						}
 						placeholder={'Descrição'}
 					/>
 					<LabelledInput
 						isReadOnly={isReadOnly}
-						labeltext={'Diagnóstico do paciente:'}
+						labeltext={
+							'Diagnóstico do paciente:'
+						}
 						placeholder={'Diagnóstico'}
 					/>
 					<LargeLabelledInput
 						inputHeight={150}
 						isReadOnly={isReadOnly}
 						labeltext={'Prescrição médica'}
-						placeholder={'Prescrição médica'}
+						placeholder={
+							'Prescrição médica'
+						}
 					/>
 
 					<Button title={'Salvar'} />
@@ -56,14 +62,24 @@ export const MedicalRecordScreen = ({ navigation }) => {
 						<Button
 							title={'Editar'}
 							buttonFn={() => {
-								setIsReadOnly(false);
+								setIsReadOnly(
+									false,
+								);
 							}}
 						/>
 					) : (
 						<></>
 					)}
 
-					<Link onPress={() => navigation.goBack()}>Cancelar</Link>
+					<Link
+						onPress={() =>
+							navigation.replace(
+								'Home',
+							)
+						}
+					>
+						Cancelar
+					</Link>
 					<Spacing size={50} />
 				</InputView>
 			</ContainerBox>

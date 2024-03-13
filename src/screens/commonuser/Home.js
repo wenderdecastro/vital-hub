@@ -116,7 +116,7 @@ export const Home = ({ navigation }) => {
 			appointmentStatus: 'cancelled',
 		},
 	]);
-	const [profile, setProfile] = useState('Patientsdfg');
+	const [profile, setProfile] = useState('Pacienteasd');
 	const [listView, setListView] = useState('scheduled');
 
 	const [cancelModalVisible, setCancelModalVisible] = useState(false);

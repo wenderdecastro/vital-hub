@@ -38,19 +38,25 @@ export const PrescriptionScreen = () => {
 					<LargeLabelledInput
 						inputHeight={150}
 						isReadOnly={isReadOnly}
-						labeltext={'Descrição da consulta:'}
+						labeltext={
+							'Descrição da consulta:'
+						}
 						placeholder={'Descrição'}
 					/>
 					<LabelledInput
 						isReadOnly={isReadOnly}
-						labeltext={'Diagnóstico do paciente:'}
+						labeltext={
+							'Diagnóstico do paciente:'
+						}
 						placeholder={'Diagnóstico'}
 					/>
 					<LargeLabelledInput
 						inputHeight={150}
 						isReadOnly={isReadOnly}
 						labeltext={'Prescrição médica'}
-						placeholder={'Prescrição médica'}
+						placeholder={
+							'Prescrição médica'
+						}
 					/>
 
 					<Spacing size={20} />
@@ -60,15 +66,27 @@ export const PrescriptionScreen = () => {
 							name="file-image-outline"
 							size={20}
 							color={Colors.gray_v2}
-							style={{ paddingTop: 15 }}
+							style={{
+								paddingTop: 15,
+							}}
 						/>
 
-						<MediumText fontSize={16} textColor={Colors.gray_v2}>
+						<MediumText
+							fontSize={16}
+							textColor={
+								Colors.gray_v2
+							}
+						>
 							Nenhuma foto informada
 						</MediumText>
 					</BlankContainer>
 
-					<RowBox style={{ justifyContent: 'space-between' }}>
+					<RowBox
+						style={{
+							justifyContent:
+								'space-between',
+						}}
+					>
 						<AltButtonContainer>
 							<MaterialCommunityIcons
 								name="camera-plus-outline"
@@ -79,7 +97,10 @@ export const PrescriptionScreen = () => {
 						<AltLink
 							textDecoration={'none'}
 							linkColor={Colors.red}
-							style={{ alignSelf: 'center', marginRight: 45 }}
+							style={{
+								alignSelf: 'center',
+								marginRight: 45,
+							}}
 						>
 							Cancelar
 						</AltLink>
@@ -94,7 +115,15 @@ export const PrescriptionScreen = () => {
 						}
 					/>
 
-					<Link>Voltar</Link>
+					<Link
+						onPress={() =>
+							navigation.replace(
+								'Home',
+							)
+						}
+					>
+						Voltar
+					</Link>
 					<Spacing size={40} />
 				</InputView>
 			</ContainerBox>

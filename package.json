@@ -29,7 +29,9 @@
     "react-native-maps-directions": "^1.9.0",
     "react-native-select-dropdown": "^3.4.0",
     "styled-components": "^6.1.8",
-    "expo-location": "~16.5.5"
+    "expo-location": "~16.5.5",
+    "expo-camera": "~14.0.6",
+    "expo-media-library": "~15.9.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
