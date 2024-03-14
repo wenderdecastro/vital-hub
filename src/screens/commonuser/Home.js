@@ -51,70 +51,6 @@ export const Home = ({ navigation }) => {
 			appointmentTime: '15:00',
 			appointmentStatus: 'scheduled',
 		},
-		{
-			consultationId: 5,
-			patientName: 'BUGIGANGA',
-			patientAge: '13',
-			appointmentPriority: 'Urgência',
-			appointmentTime: '15:00',
-			appointmentStatus: 'cancelled',
-		},
-		{
-			consultationId: 5,
-			patientName: 'BUGIGANGA',
-			patientAge: '13',
-			appointmentPriority: 'Urgência',
-			appointmentTime: '15:00',
-			appointmentStatus: 'cancelled',
-		},
-		{
-			consultationId: 5,
-			patientName: 'BUGIGANGA',
-			patientAge: '13',
-			appointmentPriority: 'Urgência',
-			appointmentTime: '15:00',
-			appointmentStatus: 'cancelled',
-		},
-		{
-			consultationId: 5,
-			patientName: 'BUGIGANGA',
-			patientAge: '13',
-			appointmentPriority: 'Urgência',
-			appointmentTime: '15:00',
-			appointmentStatus: 'cancelled',
-		},
-		{
-			consultationId: 5,
-			patientName: 'BUGIGANGA',
-			patientAge: '13',
-			appointmentPriority: 'Urgência',
-			appointmentTime: '15:00',
-			appointmentStatus: 'cancelled',
-		},
-		{
-			consultationId: 5,
-			patientName: 'BUGIGANGA',
-			patientAge: '13',
-			appointmentPriority: 'Urgência',
-			appointmentTime: '15:00',
-			appointmentStatus: 'cancelled',
-		},
-		{
-			consultationId: 5,
-			patientName: 'BUGIGANGA',
-			patientAge: '13',
-			appointmentPriority: 'Urgência',
-			appointmentTime: '15:00',
-			appointmentStatus: 'cancelled',
-		},
-		{
-			consultationId: 5,
-			patientName: 'BUGIGANGA',
-			patientAge: '13',
-			appointmentPriority: 'Urgência',
-			appointmentTime: '15:00',
-			appointmentStatus: 'cancelled',
-		},
 	]);
 	const [profile, setProfile] = useState('Pacienteasd');
 	const [listView, setListView] = useState('scheduled');
@@ -144,7 +80,7 @@ export const Home = ({ navigation }) => {
 					handleClose('AppointmentMap')
 				}
 				navigateRecords={() =>
-					handleClose('MedicalRecord')
+					handleClose('Prescription')
 				}
 				patientAge={22}
 				patientName={'Tasmania Souza'}

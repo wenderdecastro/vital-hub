@@ -10,7 +10,6 @@ import {
 import { Spacing } from '../../utils/Components';
 import { Button } from '../../components/Buttons';
 import { ScrollView } from 'react-native';
-import { useState } from 'react';
 import { AltLink, Link } from '../../components/Link/style';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Label, MediumText } from '../../components/Text/style';
@@ -19,8 +18,21 @@ import { AltButtonContainer } from '../../components/Buttons/style';
 import { Divisor } from '../../components/Misc/Divisor';
 import { LargeInput } from '../../components/Input/style';
 
-export const PrescriptionScreen = () => {
+import { Camera, CameraType } from 'expo-camera';
+import { useEffect, useRef, useState } from 'react';
+
+import { FontAwesome } from '@expo/vector-icons';
+
+import * as MediaLibrary from 'expo-media-library';
+
+export const PrescriptionScreen = ({ navigation }) => {
 	const [isReadOnly, setIsReadOnly] = useState(true);
+	const [fileName, setFileName] = useState('Nenhuma foto informada');
+
+	const getFileName = (photoName) => {
+		setFileName(photoName);
+	};
+
 	return (
 		<ScrollView>
 			<ContainerBox>
@@ -77,7 +89,7 @@ export const PrescriptionScreen = () => {
 								Colors.gray_v2
 							}
 						>
-							Nenhuma foto informada
+							{fileName}
 						</MediumText>
 					</BlankContainer>
 
@@ -87,12 +99,34 @@ export const PrescriptionScreen = () => {
 								'space-between',
 						}}
 					>
-						<AltButtonContainer>
+						<AltButtonContainer
+							style={{
+								flexDirection:
+									'row',
+								alignItems: 'center',
+								gap: 15,
+							}}
+							onPress={() =>
+								navigation.navigate(
+									'Camera',
+								)
+							}
+						>
 							<MaterialCommunityIcons
 								name="camera-plus-outline"
 								size={24}
 								color="white"
 							/>
+							<MediumText
+								style={{
+									marginTop: 0,
+								}}
+								textColor={
+									Colors.white
+								}
+							>
+								Enviar
+							</MediumText>
 						</AltButtonContainer>
 						<AltLink
 							textDecoration={'none'}

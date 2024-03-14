@@ -17,11 +17,15 @@ export const Navigation = ({ navigation }) => {
 			/>
 			<Button
 				title="ForgotPassword"
-				onPress={() => navigation.navigate('ForgotPassword')}
+				onPress={() =>
+					navigation.navigate('ForgotPassword')
+				}
 			/>
 			<Button
 				title="ResetPassword"
-				onPress={() => navigation.navigate('ResetPassword')}
+				onPress={() =>
+					navigation.navigate('ResetPassword')
+				}
 			/>
 			<Button
 				title="Register"
@@ -29,37 +33,58 @@ export const Navigation = ({ navigation }) => {
 			/>
 			<Button
 				title="EmailConfirmation"
-				onPress={() => navigation.navigate('EmailConfirmation')}
+				onPress={() =>
+					navigation.navigate('EmailConfirmation')
+				}
 			/>
 			<Button
 				title="Profile"
 				onPress={() => navigation.navigate('Profile')}
 			/>
-			<Button title="Home" onPress={() => navigation.navigate('Home')} />
+			<Button
+				title="Home"
+				onPress={() => navigation.navigate('Home')}
+			/>
 
 			<Button
 				title="MedicalRecord"
-				onPress={() => navigation.navigate('MedicalRecord')}
+				onPress={() =>
+					navigation.navigate('MedicalRecord')
+				}
 			/>
 			<Button
 				title="SelectMedic"
-				onPress={() => navigation.navigate('SelectMedic')}
+				onPress={() =>
+					navigation.navigate('SelectMedic')
+				}
 			/>
 			<Button
 				title="Prescription"
-				onPress={() => navigation.navigate('Prescription')}
+				onPress={() =>
+					navigation.navigate('Prescription')
+				}
 			/>
 			<Button
 				title="SelectClinic"
-				onPress={() => navigation.navigate('SelectClinic')}
+				onPress={() =>
+					navigation.navigate('SelectClinic')
+				}
 			/>
 			<Button
 				title="SelectDate"
-				onPress={() => navigation.navigate('SelectDate')}
+				onPress={() =>
+					navigation.navigate('SelectDate')
+				}
 			/>
 			<Button
 				title="AppointmentMap"
-				onPress={() => navigation.navigate('AppointmentMap')}
+				onPress={() =>
+					navigation.navigate('AppointmentMap')
+				}
+			/>
+			<Button
+				title="Camera"
+				onPress={() => navigation.navigate('Camera')}
 			/>
 		</View>
 	);
