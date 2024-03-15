@@ -9,7 +9,7 @@ import {
 } from '../../components/Container/style';
 import { Spacing } from '../../utils/Components';
 import { Button } from '../../components/Buttons';
-import { ScrollView } from 'react-native';
+import { Image, ScrollView } from 'react-native';
 import { AltLink, Link } from '../../components/Link/style';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Label, MediumText } from '../../components/Text/style';
@@ -25,12 +25,31 @@ import { FontAwesome } from '@expo/vector-icons';
 
 import * as MediaLibrary from 'expo-media-library';
 
-export const PrescriptionScreen = ({ navigation }) => {
+export const PrescriptionScreen = ({ navigation, route }) => {
 	const [isReadOnly, setIsReadOnly] = useState(true);
 	const [fileName, setFileName] = useState('Nenhuma foto informada');
 
+	const [photo, setPhoto] = useState(
+		route.params == undefined ? null : route.params.photoFile,
+	);
+
 	const getFileName = (photoName) => {
 		setFileName(photoName);
+	};
+
+	useEffect(() => {
+		setPhoto(route.params.photoFile);
+	}, [photo]);
+
+	const toCamera = async () => {
+		const { status: cameraStatus } =
+			await Camera.requestCameraPermissionsAsync();
+		const { status: mediaStatus } =
+			await MediaLibrary.requestPermissionsAsync();
+		console.log(mediaStatus);
+		console.log(cameraStatus);
+		if (mediaStatus == 'granted' && cameraStatus == 'granted')
+			navigation.navigate('Camera');
 	};
 
 	return (
@@ -74,23 +93,47 @@ export const PrescriptionScreen = ({ navigation }) => {
 					<Spacing size={20} />
 					<Label>Exames médicos</Label>
 					<BlankContainer>
-						<MaterialCommunityIcons
-							name="file-image-outline"
-							size={20}
-							color={Colors.gray_v2}
-							style={{
-								paddingTop: 15,
-							}}
-						/>
+						{photo == null ? (
+							<>
+								<MaterialCommunityIcons
+									name="file-image-outline"
+									size={
+										20
+									}
+									color={
+										Colors.gray_v2
+									}
+									style={{
+										paddingTop: 15,
+									}}
+								/>
 
-						<MediumText
-							fontSize={16}
-							textColor={
-								Colors.gray_v2
-							}
-						>
-							{fileName}
-						</MediumText>
+								<MediumText
+									fontSize={
+										16
+									}
+									textColor={
+										Colors.gray_v2
+									}
+								>
+									{
+										fileName
+									}
+								</MediumText>
+							</>
+						) : (
+							<Image
+								style={{
+									width: '100%',
+									height: '100%',
+
+									borderRadius: 10,
+								}}
+								source={{
+									uri: photo,
+								}}
+							/>
+						)}
 					</BlankContainer>
 
 					<RowBox
@@ -107,9 +150,7 @@ export const PrescriptionScreen = ({ navigation }) => {
 								gap: 15,
 							}}
 							onPress={() =>
-								navigation.navigate(
-									'Camera',
-								)
+								toCamera()
 							}
 						>
 							<MaterialCommunityIcons

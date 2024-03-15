@@ -11,7 +11,7 @@ import { CardList } from '../../components/Card/style';
 import {
 	CancelModal,
 	ConfirmScheduleModal,
-	MedicalRecordModal,
+	CardModal,
 	ScheduleAppointment,
 	ScheduleAppointmentModal,
 } from '../../components/Modal';
@@ -56,13 +56,12 @@ export const Home = ({ navigation }) => {
 	const [listView, setListView] = useState('scheduled');
 
 	const [cancelModalVisible, setCancelModalVisible] = useState(false);
-	const [medicalRecordModalVisible, setMedicalRecordModalVisible] =
-		useState(false);
+	const [cardModalVisible, setCardModalVisible] = useState(false);
 	const [NewRecordModalVisible, setNewRecordModalVisible] =
 		useState(false);
 	const [confirmModalVisible, setConfirmModalVisible] = useState(false);
 	async function handleClose(screen) {
-		await setMedicalRecordModalVisible(false);
+		await setCardModalVisible(false);
 		navigation.replace(screen);
 	}
 
@@ -74,7 +73,7 @@ export const Home = ({ navigation }) => {
 					setCancelModalVisible(false);
 				}}
 			/>
-			<MedicalRecordModal
+			<CardModal
 				profile={profile}
 				navigateMap={() =>
 					handleClose('AppointmentMap')
@@ -88,9 +87,9 @@ export const Home = ({ navigation }) => {
 				imgSource={{
 					uri: 'https://http2.mlstatic.com/D_NQ_NP_912498-MLB52128503176_102022-O.png',
 				}}
-				isVisible={medicalRecordModalVisible}
+				isVisible={cardModalVisible}
 				hideModalFn={() => {
-					setMedicalRecordModalVisible(false);
+					setCardModalVisible(false);
 				}}
 			/>
 
@@ -203,7 +202,7 @@ export const Home = ({ navigation }) => {
 													);
 											  }
 											: () => {
-													setMedicalRecordModalVisible(
+													setCardModalVisible(
 														true,
 													);
 											  }
@@ -212,7 +211,7 @@ export const Home = ({ navigation }) => {
 										navigation
 									}
 									cardClickFn={() => {
-										setMedicalRecordModalVisible(
+										setCardModalVisible(
 											true,
 										);
 									}}

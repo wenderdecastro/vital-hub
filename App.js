@@ -28,7 +28,7 @@ import { SelectClinicScreen } from './src/screens/commonuser/SelectClinicScreen'
 import { SelectDateScreen } from './src/screens/commonuser/SelectDateScreen';
 import { AppointmentMapScreen } from './src/screens/commonuser/AppointmentMapScreen';
 import { Main } from './src/screens/main/main';
-import { CameraScreen } from './src/screens/commonuser/CameraScreen';
+import { CameraModal } from './src/screens/commonuser/CameraModal';
 
 const Stack = createNativeStackNavigator();
 
@@ -140,7 +140,7 @@ export default function App() {
 				/>
 				<Stack.Screen
 					name="Camera"
-					component={CameraScreen}
+					component={CameraModal}
 					options={{ title: 'Camera' }}
 				/>
 			</Stack.Navigator>

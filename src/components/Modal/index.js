@@ -46,7 +46,7 @@ export const CancelModal = ({ isVisible, hideModalFn }) => {
 	);
 };
 
-export const MedicalRecordModal = ({
+export const CardModal = ({
 	isVisible,
 	hideModalFn,
 	imgSource,

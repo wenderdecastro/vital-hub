@@ -16,7 +16,7 @@ import { FontAwesome } from '@expo/vector-icons';
 
 import * as MediaLibrary from 'expo-media-library';
 
-export function CameraScreen() {
+export function CameraModal({ navigation }) {
 	const [photo, setPhoto] = useState(null);
 	const [lens, setLens] = useState(Camera.Constants.Type.back);
 	const [openModal, setOpenModal] = useState(false);
@@ -48,6 +48,9 @@ export function CameraScreen() {
 			await MediaLibrary.createAssetAsync(photo)
 				.then(() => {
 					Alert.alert('Success', 'Photo saved.');
+					navigation.navigate('Prescription', {
+						photoFile: photo,
+					});
 				})
 				.catch((error) => {
 					alert('Error on processing image');
