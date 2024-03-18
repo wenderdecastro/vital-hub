@@ -27,7 +27,7 @@ export const Modal = ({ isVisible, children, modalHeight }) => {
 	);
 };
 
-export const CancelModal = ({ isVisible, hideModalFn }) => {
+export const CancelModal = ({ isVisible, hideModalFn, ButtonFn }) => {
 	return (
 		<Modal isVisible={isVisible}>
 			<Title style={{ marginTop: '0' }}>
@@ -39,7 +39,7 @@ export const CancelModal = ({ isVisible, hideModalFn }) => {
 				cancelar essa consulta?
 			</RawText>
 
-			<Button title={'Confirmar'} />
+			<Button title={'Confirmar'} onPress={ButtonFn} />
 
 			<Link onPress={hideModalFn}>Cancelar</Link>
 		</Modal>

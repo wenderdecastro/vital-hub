@@ -17,6 +17,26 @@ import {
 } from '../../components/Modal';
 import { NewScheduleButton } from '../../components/FixedButtons';
 
+//importar os recursos da biblioteca
+import * as Notifications from 'expo-notifications';
+
+//solicitar as permissoes de notificacao ao iniciar o app
+Notifications.requestPermissionsAsync();
+
+//definir como as notificacoes devem ser tratados quando recebidos
+Notifications.setNotificationHandler({
+	handleNotification: async () => ({
+		//mostra o alerta quando a notificao for recebida
+		shouldShowAlert: true,
+
+		//reproduz ou nao som ao receber a notificao
+		shouldPlaySound: true,
+
+		//configura o numero de notificacoes no icone do app
+		shouldSetBadge: true,
+	}),
+});
+
 export const Home = ({ navigation }) => {
 	const [AppointmentList, setAppointmentList] = useState([
 		{
@@ -65,10 +85,34 @@ export const Home = ({ navigation }) => {
 		navigation.replace(screen);
 	}
 
+	//funcao para lidar com a chamada da notificacao
+	const handleCallNotifications = async () => {
+		//obtem o status das permissoes
+		const { status } = await Notifications.getPermissionsAsync();
+
+		//verifica se o usuario concedeu permissao para as notificacoes
+		if (status !== 'granted') {
+			alert('Voce nao deixou as notificacoes ativas');
+			return;
+		}
+
+		//agendar uma notificao para ser exibida apos 5 segundos
+		await Notifications.scheduleNotificationAsync({
+			content: {
+				title: 'teste notificacao',
+				body: 'ta notificado',
+			},
+			trigger: {
+				seconds: 2,
+			},
+		});
+	};
+
 	return (
 		<>
 			<CancelModal
 				isVisible={cancelModalVisible}
+				ButtonFn={handleCallNotifications}
 				hideModalFn={() => {
 					setCancelModalVisible(false);
 				}}
