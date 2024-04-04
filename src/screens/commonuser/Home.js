@@ -38,42 +38,9 @@ Notifications.setNotificationHandler({
 });
 
 export const Home = ({ navigation }) => {
-	const [AppointmentList, setAppointmentList] = useState([
-		{
-			consultationId: 1,
-			patientName: 'Tasmania',
-			patientAge: '69',
-			appointmentPriority: 'Rotina',
-			appointmentTime: '14:00',
-			appointmentStatus: 'cancelled',
-		},
-		{
-			consultationId: 2,
-			patientName: 'Pato donald',
-			patientAge: '28',
-			appointmentPriority: 'Urgência',
-			appointmentTime: '15:00',
-			appointmentStatus: 'scheduled',
-		},
-		{
-			consultationId: 3,
-			patientName: 'Endauldi',
-			patientAge: '24',
-			appointmentPriority: 'Rotina',
-			appointmentTime: '16:00',
-			appointmentStatus: 'terminated',
-		},
-		{
-			consultationId: 4,
-			patientName: 'Aggrumgit',
-			patientAge: '22',
-			appointmentPriority: 'Urgência',
-			appointmentTime: '15:00',
-			appointmentStatus: 'scheduled',
-		},
-	]);
 	const [profile, setProfile] = useState('Pacienteasd');
-	const [listView, setListView] = useState('scheduled');
+	const [listView, setListView] = useState('Pendente');
+	const [dataConsulta, setDataConsulta] = useState();
 
 	const [cancelModalVisible, setCancelModalVisible] = useState(false);
 	const [cardModalVisible, setCardModalVisible] = useState(false);
@@ -92,20 +59,20 @@ export const Home = ({ navigation }) => {
 
 		//verifica se o usuario concedeu permissao para as notificacoes
 		if (status !== 'granted') {
-			alert('Voce nao deixou as notificacoes ativas');
+			alert('Notificações não permitidas.');
 			return;
 		}
 
-		//agendar uma notificao para ser exibida apos 5 segundos
-		await Notifications.scheduleNotificationAsync({
-			content: {
-				title: 'teste notificacao',
-				body: 'ta notificado',
-			},
-			trigger: {
-				seconds: 2,
-			},
-		});
+		const [userLogin, setUserLogin] = useState();
+		const [profile, setProfile] = useState();
+
+		async function profileLoad() {
+			const token = await userDecodeToken();
+
+			console.log(token);
+			setProfile(token);
+			setUserLogin(token.role);
+		}
 	};
 
 	return (
@@ -163,38 +130,37 @@ export const Home = ({ navigation }) => {
 
 				{/* Calendar */}
 
-				<WeeklyCalendar />
+				<WeeklyCalendar
+					setDataConsulta={setDataConsulta}
+				/>
 
 				{/* Filtros (button) */}
 				<SwitchContainer>
 					<FilterButtonSwitch
 						textButton={'Agendadas'}
 						clickButton={
-							listView === 'scheduled'
+							listView === 'Pendente'
 						}
 						onPress={() =>
-							setListView('scheduled')
+							setListView('Pendente')
 						}
 					/>
 					<FilterButtonSwitch
 						textButton={'Realizadas'}
 						clickButton={
-							listView ===
-							'terminated'
+							listView === 'Realizada'
 						}
 						onPress={() =>
-							setListView(
-								'terminated',
-							)
+							setListView('Realizada')
 						}
 					/>
 					<FilterButtonSwitch
 						textButton={'Canceladas'}
 						clickButton={
-							listView === 'cancelled'
+							listView === 'Cancelada'
 						}
 						onPress={() =>
-							setListView('cancelled')
+							setListView('Cancelada')
 						}
 					/>
 				</SwitchContainer>

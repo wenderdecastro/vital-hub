@@ -15,16 +15,31 @@ import {
 } from 'expo-location';
 import MapViewDirections from 'react-native-maps-directions';
 import { InputRow } from '../../components/Container/style';
+import api from '../../services/apiservice';
 
-export const AppointmentMapScreen = ({ navigation }) => {
+export const AppointmentMapScreen = ({ navigation, route }) => {
 	const [initialPosition, setInitialPosition] = useState(null);
 
+	const [clinica, setClinica] = useState();
 	const mapReference = useRef(null);
 
 	const [finalPosition, setFinalPosition] = useState({
 		latitude: -10.820694,
 		longitude: -42.72046,
 	});
+
+	useEffect(() => {
+		if (clinica == null) BuscarClinica();
+	}, [clinica]);
+
+	async function BuscarClinica() {
+		await api
+			.get(`/Clinica/BuscarPorId?id=${route.params.clinica}`)
+			.then((response) => {
+				setClinica(response.data);
+			})
+			.catch((error) => console.error(error));
+	}
 
 	async function reloadMapView() {
 		if (mapReference.current && initialPosition)
@@ -87,115 +102,154 @@ export const AppointmentMapScreen = ({ navigation }) => {
 
 	return (
 		<>
-			<StatusBar style="auto" />
-			<View
-				style={{
-					height: '45%',
-					windowWidth,
-				}}
-			>
-				{initialPosition != null ? (
-					<MapView
-						style={styles.map}
-						loadingEnabled
-						ref={mapReference}
-						initialRegion={{
-							latitude: initialPosition
-								.coords
-								.latitude,
-							longitude: initialPosition
-								.coords
-								.longitude,
-							latitudeDelta: 2,
-							longitudeDelta: 2,
+			{clinica !== null ? (
+				<>
+					<StatusBar style="auto" />
+					<View
+						style={{
+							height: '45%',
+							windowWidth,
 						}}
-						provider={PROVIDER_GOOGLE}
-						customMapStyle={grayMapStyle}
 					>
-						<MapViewDirections
-							origin={{
-								latitude: initialPosition
-									.coords
-									.latitude,
-								longitude: initialPosition
-									.coords
-									.longitude,
-							}}
-							destination={
-								finalPosition
-							}
-							apikey={
-								'AIzaSyAqIF5MN4yo8ZHwg9WsKP14I-fAK6hpKWY'
-							}
-							strokeColor="#496BBA"
-							strokeWidth={5}
-						/>
-						<Marker
-							coordinate={{
-								latitude: initialPosition
-									.coords
-									.latitude,
-								longitude: initialPosition
-									.coords
-									.longitude,
-							}}
-							title="senai"
-							pinColor={'blue'}
-						/>
-						<Marker
-							coordinate={{
-								latitude: finalPosition.latitude,
-								longitude: finalPosition.longitude,
-							}}
-							title="xique xique bahia"
-							pinColor={'blue'}
-						/>
-					</MapView>
-				) : (
-					<>
-						<Title> map isnt working</Title>
-						<ActivityIndicator />
-					</>
-				)}
-			</View>
+						{initialPosition != null ? (
+							<MapView
+								style={
+									styles.map
+								}
+								loadingEnabled
+								ref={
+									mapReference
+								}
+								initialRegion={{
+									latitude: initialPosition
+										.coords
+										.latitude,
+									longitude: initialPosition
+										.coords
+										.longitude,
+									latitudeDelta: 2,
+									longitudeDelta: 2,
+								}}
+								provider={
+									PROVIDER_GOOGLE
+								}
+								customMapStyle={
+									grayMapStyle
+								}
+							>
+								<MapViewDirections
+									origin={{
+										latitude: initialPosition
+											.coords
+											.latitude,
+										longitude: initialPosition
+											.coords
+											.longitude,
+									}}
+									destination={
+										finalPosition
+									}
+									apikey={
+										'AIzaSyAqIF5MN4yo8ZHwg9WsKP14I-fAK6hpKWY'
+									}
+									strokeColor="#496BBA"
+									strokeWidth={
+										5
+									}
+								/>
+								<Marker
+									coordinate={{
+										latitude: initialPosition
+											.coords
+											.latitude,
+										longitude: initialPosition
+											.coords
+											.longitude,
+									}}
+									title="senai"
+									pinColor={
+										'blue'
+									}
+								/>
+								<Marker
+									coordinate={{
+										latitude: finalPosition.latitude,
+										longitude: finalPosition.longitude,
+									}}
+									title="xique xique bahia"
+									pinColor={
+										'blue'
+									}
+								/>
+							</MapView>
+						) : (
+							<>
+								<Title>
+									{' '}
+									map isnt
+									working
+								</Title>
+								<ActivityIndicator />
+							</>
+						)}
+					</View>
 
-			<Container>
-				<Title>Clinica x</Title>
-				<Label
-					style={{
-						alignSelf: 'center',
-						marginTop: -3,
-					}}
-				>
-					Sao Paulo Sp
-				</Label>
-				<LabelledInput
-					isReadOnly={true}
-					labeltext="Endereço"
-					placeholder="Rua tal de tal de tal, 333"
-				/>
-				<InputRow>
-					<ShortLabelledInput
-						isReadOnly={true}
-						labeltext={'Numero:'}
-						placeholder={'000'}
-					/>
-					<ShortLabelledInput
-						isReadOnly={true}
-						labeltext={'Bairro:'}
-						placeholder={
-							'ex: Vila Chuca - SP'
-						}
-					/>
-				</InputRow>
-				<Link
-					onPress={() => {
-						navigation.replace('Main');
-					}}
-				>
-					Voltar
-				</Link>
-			</Container>
+					<Container>
+						<Title>Clinica x</Title>
+						<Label
+							style={{
+								alignSelf: 'center',
+								marginTop: -3,
+							}}
+						>
+							Sao Paulo Sp
+						</Label>
+						<LabelledInput
+							isReadOnly={true}
+							labeltext="Endereço"
+							placeholder="Rua tal de tal de tal, 333"
+						/>
+						<InputRow>
+							<ShortLabelledInput
+								isReadOnly={
+									true
+								}
+								labeltext={
+									'Numero:'
+								}
+								placeholder={
+									'000'
+								}
+							/>
+							<ShortLabelledInput
+								isReadOnly={
+									true
+								}
+								labeltext={
+									'Bairro:'
+								}
+								placeholder={
+									'ex: Vila Chuca - SP'
+								}
+							/>
+						</InputRow>
+						<Link
+							onPress={() => {
+								navigation.replace(
+									'Main',
+								);
+							}}
+						>
+							Voltar
+						</Link>
+					</Container>
+				</>
+			) : (
+				<>
+					<Title> Clinica não encontrada</Title>
+					<ActivityIndicator />
+				</>
+			)}
 		</>
 	);
 };

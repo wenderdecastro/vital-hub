@@ -137,18 +137,18 @@ export const ScheduleAppointmentModal = ({
 				<SwitchContainer rowWidth={100}>
 					<ConsultationButtonSwitch
 						textButton={'Rotina'}
-						// clickButton={listView === 'scheduled'}
-						// onPress={() => setListView('scheduled')}
+						// clickButton={listView === 'Pendente'}
+						// onPress={() => setListView('Pendente')}
 					/>
 					<ConsultationButtonSwitch
 						textButton={'Exame'}
-						// clickButton={listView === 'terminated'}
-						// onPress={() => setListView('terminated')}
+						// clickButton={listView === 'Realizada'}
+						// onPress={() => setListView('Realizada')}
 					/>
 					<ConsultationButtonSwitch
 						textButton={'Urgência'}
-						// clickButton={listView === 'cancelled'}
-						// onPress={() => setListView('cancelled')}
+						// clickButton={listView === 'Cancelada'}
+						// onPress={() => setListView('Cancelada')}
 					/>
 				</SwitchContainer>
 				<Spacing size={15} />

@@ -6,7 +6,9 @@ export const InputBox = styled.View`
 `;
 
 export const Input = styled.TextInput.attrs((props) => ({
-	placeholderTextColor: props.isReadOnly ? Colors.gray_v1 : Colors.primary_v1,
+	placeholderTextColor: props.isReadOnly
+		? Colors.gray_v1
+		: Colors.primary_v1,
 	readOnly: props.isReadOnly ? true : false,
 }))`
 	border-radius: 5px;

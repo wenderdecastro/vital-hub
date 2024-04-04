@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import { StyledCalendarStrip } from './style';
 import { Colors } from '../../utils/Colors';
 
-export const WeeklyCalendar = () => {
+export const WeeklyCalendar = (setDataConsulta) => {
 	//define padrão pt-br para calendário
 	moment.updateLocale('pt-br', {
 		//meses
@@ -12,15 +12,15 @@ export const WeeklyCalendar = () => {
 		),
 
 		//abreviação de meses
-		monthsShort: 'jan_fev_mar_abr_mai_jun_jul_ago_set_out_nov_dez'.split(
-			'_',
-		),
-
-		//dias da semana
-		weekdays:
-			'domingo_segunda-feira_terça-feira_quarta-feira_quinta-feira_sexta-feira_sábado'.split(
+		monthsShort:
+			'jan_fev_mar_abr_mai_jun_jul_ago_set_out_nov_dez'.split(
 				'_',
 			),
+
+		//dias da semana
+		weekdays: 'domingo_segunda-feira_terça-feira_quarta-feira_quinta-feira_sexta-feira_sábado'.split(
+			'_',
+		),
 
 		//abreviação dias da semana
 		weekdaysShort: 'Dom_Seg_Ter_Qua_Qui_Sex_Sáb'.split('_'),
@@ -60,14 +60,23 @@ export const WeeklyCalendar = () => {
 			//data min e max - início do mês e final do mês
 			minDate={startingDate}
 			maxDate={endingDate}
+			onDateSelected={(date) =>
+				setDataConsulta(
+					moment(date).format('YYYY-MM-DD'),
+				)
+			}
 			//estilização dos itens que não estão selecionados
 			calendarHeaderStyle={styles.calendarHeaderStyle}
 			dateNumberStyle={styles.numberDateStyle}
 			dateNameStyle={styles.nameDateStyle}
 			// estilização do item que está selecionado - efeito do item marcado
 			highlightDateNameStyle={styles.selectedDateNameStyle}
-			highlightDateNumberStyle={styles.selectedDateNumberStyle}
-			highlightDateContainerStyle={styles.selectedContainerStyle}
+			highlightDateNumberStyle={
+				styles.selectedDateNumberStyle
+			}
+			highlightDateContainerStyle={
+				styles.selectedContainerStyle
+			}
 			//tamanho do container
 			iconContainer={{ flex: 0.1 }}
 			//scroll da barra
