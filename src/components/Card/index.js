@@ -62,8 +62,7 @@ export const AppointmentCard = ({
 								>
 									{
 										patientAge
-									}{' '}
-									anos
+									}
 								</ThinText>
 								<Entypo
 									name="dot-single"

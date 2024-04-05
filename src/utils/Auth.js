@@ -12,8 +12,8 @@ if (!global.btoa) {
 
 export const userDecodeToken = async () => {
 	//capturarando o token
-	const token = await AsyncStorage.getItem('token');
-
+	// const token = await AsyncStorage.getItem('token');
+	const token = JSON.parse(await AsyncStorage.getItem('token')).token;
 	if (token === null) {
 		return null;
 	}
@@ -21,13 +21,13 @@ export const userDecodeToken = async () => {
 	//descriptografando o token
 	const decoded = jwtDecode(token);
 
+	console.log('**************** DECODE');
+	console.log(decoded);
+
 	return {
 		jti: decoded.jti,
 		role: decoded.role,
 		name: decoded.name,
 		email: decoded.email,
-		cep: decoded.cep,
-		logradouro: decoded.logradouro,
-		numero: decoded.numero,
 	};
 };

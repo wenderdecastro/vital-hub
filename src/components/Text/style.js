@@ -7,7 +7,8 @@ export const RawText = styled.Text`
 	color: ${(props) => (props.textColor ? props.textColor : Colors.gray)};
 	text-decoration: none;
 	margin-top: 15px;
-	text-align: center;
+	line-height: 20px;
+	width: fit-content;
 `;
 export const AlignedText = styled(RawText)`
 	text-decoration: none;
@@ -17,7 +18,8 @@ export const AlignedText = styled(RawText)`
 
 export const ThinText = styled(RawText)`
 	font-family: 'Quicksand_400Regular';
-	color: ${(props) => (props.textColor ? props.textColor : Colors.gray_v4)};
+	color: ${(props) =>
+		props.textColor ? props.textColor : Colors.gray_v4};
 	margin: 0;
 	font-size: ${(props) => (props.fontSize ? props.fontSize : 16)}px;
 `;
@@ -30,6 +32,8 @@ export const AltText = styled(RawText)`
 	font-family: 'MontserratAlternates_600SemiBold';
 	font-size: ${(props) => (props.fontSize ? props.fontSize : 18)}px;
 	margin-top: 0;
+	line-height: 20px;
+	width: fit-content;
 `;
 
 export const Label = styled(AltText)`

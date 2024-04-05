@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import { StyledCalendarStrip } from './style';
 import { Colors } from '../../utils/Colors';
 
-export const WeeklyCalendar = (setDataConsulta) => {
+export const WeeklyCalendar = ({ setDataConsulta }) => {
 	//define padrão pt-br para calendário
 	moment.updateLocale('pt-br', {
 		//meses

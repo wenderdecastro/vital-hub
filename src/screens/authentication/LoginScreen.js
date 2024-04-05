@@ -40,7 +40,6 @@ export const LoginScreen = ({ navigation }) => {
 				email: email,
 				senha: senha,
 			});
-			console.log(response);
 
 			setLoading(true);
 			console.log(response);
@@ -50,14 +49,12 @@ export const LoginScreen = ({ navigation }) => {
 				'token',
 				JSON.stringify(response.data),
 			);
+			console.log(response.data);
 
 			setTimeout(() => {
 				setLoading(false);
 				navigation.replace('Home');
 			}, 2000);
-
-			console.log(email);
-			console.log(senha);
 		} catch (error) {
 			Toast.show({
 				type: 'error',

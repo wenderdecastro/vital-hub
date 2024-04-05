@@ -6,4 +6,5 @@ export const Title = styled.Text`
 	color: ${Colors.gray};
 	font-family: 'MontserratAlternates_600SemiBold';
 	margin-top: 25px;
+	overflow: hidden;
 `;

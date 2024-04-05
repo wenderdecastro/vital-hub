@@ -34,7 +34,7 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
 	// load fonts
-	let [fontsLoaded, fontError] = useFonts({
+	const [fontsLoaded, fontsError] = useFonts({
 		MontserratAlternates_500Medium,
 		MontserratAlternates_600SemiBold,
 		MontserratAlternates_700Bold,
@@ -44,7 +44,13 @@ export default function App() {
 	});
 
 	// abort if font error
-	if (!fontsLoaded && fontError) return null;
+	if (!fontsLoaded) {
+		return (
+			<View>
+				<Text>Loading...</Text>
+			</View>
+		);
+	}
 
 	return (
 		//involves the structure of navigation
